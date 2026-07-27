@@ -444,7 +444,7 @@ FightIntroBackMon:
 FightIntroBackMonEnd:
 
 ; [TODO) Custom intro?
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 FightIntroFrontMon:
 	INCBIN "gfx/intro/blue_jigglypuff_1.2bpp"
 FightIntroFrontMon2:

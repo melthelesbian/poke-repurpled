@@ -1,6 +1,6 @@
 TitleMons:
 ; mons on the title screen are randomly chosen from here
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 	db STARTER3
 	db STARTER1
 	db STARTER2

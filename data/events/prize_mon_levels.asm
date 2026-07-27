@@ -1,5 +1,5 @@
 PrizeMonLevelDictionary:
-IF  DEF(_AMARANTH)
+IF  DEF(_REPURPLED)
 	db ABRA,       5
 	db CLEFAIRY,   5
 	db JIGGLYPUFF, 5

@@ -1,6 +1,6 @@
 Route22WildMons:
 	def_grass_wildmons 25 ; encounter rate
-IF DEF(_AMARANTH) || DEF(_RED) || DEF(_BLUE)
+IF DEF(_REPURPLED) || DEF(_RED) || DEF(_BLUE)
 	db 3, NIDORAN_M ; 20%
 	db 3, NIDORAN_F ; 20%
 	db 3, MEOWTH    ; 10%

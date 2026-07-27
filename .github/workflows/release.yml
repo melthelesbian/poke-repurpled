@@ -44,11 +44,11 @@ jobs:
           cp pokered.gbc ../base_pokered.gbc
           git checkout $GITHUB_REF_NAME
 
-      - name: Build amaranth and debug ROMs
+      - name: Build repurpled and debug ROMs
         run: |
           make clean
-          make amaranth.gbc
-          make amaranth_debug.gbc
+          make repurpled.gbc
+          make repurpled_debug.gbc
 
       - name: Download and set up Flips
         run: |
@@ -58,18 +58,18 @@ jobs:
 
       - name: Generate BPS patches
         run: |
-          ./flips/flips --create --bps ../base_pokered.gbc amaranth.gbc amaranth.bps
-          ./flips/flips --create --bps ../base_pokered.gbc amaranth_debug.gbc amaranth_debug.bps
+          ./flips/flips --create --bps ../base_pokered.gbc repurpled.gbc repurpled.bps
+          ./flips/flips --create --bps ../base_pokered.gbc repurpled_debug.gbc repurpled_debug.bps
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            amaranth.bps
-            amaranth.map
-            amaranth.sym
-            amaranth_debug.bps
-            amaranth_debug.map
-            amaranth_debug.sym
+            repurpled.bps
+            repurpled.map
+            repurpled.sym
+            repurpled_debug.bps
+            repurpled_debug.map
+            repurpled_debug.sym
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,21 +1,21 @@
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 DefaultNamesPlayerCute:
 	db "NEW NAME"
-	next "AMARA"
+	next "PURPLE"
 	next "VIOLET"
 	next "PLUM"
 	db   "@"
 
 DefaultNamesPlayerCool:
 	db "NEW NAME"
-	next "AMAR"
 	next "PURPLE"
-	next "BARRY"
+	next "INDIGO"
+	next "BERRY"
 	db   "@"
 
 DefaultNamesRival:
 	db "NEW NAME"
-	next "ANTHONY"
+	next "RED"
 	next "BLUE"
 	next "GARY"
 	db   "@"

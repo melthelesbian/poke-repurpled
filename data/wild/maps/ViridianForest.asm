@@ -1,6 +1,6 @@
 ViridianForestWildMons:
 	def_grass_wildmons 8 ; encounter rate
-IF DEF(_AMARANTH) || DEF(_RED) || DEF(_BLUE)
+IF DEF(_REPURPLED) || DEF(_RED) || DEF(_BLUE)
 	db 4, CATERPIE   ; 20%
 	db 4, WEEDLE     ; 20%
 	db 5, CATERPIE   ; 10%

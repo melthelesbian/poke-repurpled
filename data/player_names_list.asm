@@ -1,19 +1,19 @@
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 DefaultNamesPlayerCuteList:
 	db "NEW NAME@"
-	db "AMARA@"
+	db "PURPLE@"
 	db "VIOLET@"
 	db "PLUM@"
 
 DefaultNamesPlayerCoolList:
 	db "NEW NAME@"
-	db "AMAR@"
 	db "PURPLE@"
-	db "BARRY@"
+	db "INDIGO@"
+	db "BERRY@"
 
 DefaultNamesRivalList:
 	db "NEW NAME@"
-	db "ANTHONY@"
+	db "RED@"
 	db "BLUE@"
 	db "GARY@"
 ENDC

@@ -1,4 +1,4 @@
-# Amaranth v1.0 TODO
+# Repurpled v1.0 TODO
 
 ## Core Tasks
 

@@ -2,7 +2,7 @@
 ; Expanded by Luna to work more like Gen 2, and to fix a bug with Cut requiring the wrong badge.
 ; Additional comments added by Luna to clarify existing yenatch code and new Luna code for Red++.
 ; Edited further for RedGold/BlueSilver to check for all the Johto related stuff.
-; Edited further for Amaranth to undo the johto stuff and modernize labels/references
+; Edited further for Repurpled to undo the johto stuff and modernize labels/references
 
 TryFieldMove:: ; predef
 	call GetPredefRegisters

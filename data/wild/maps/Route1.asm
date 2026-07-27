@@ -1,6 +1,6 @@
 Route1WildMons:
 	def_grass_wildmons 25 ; encounter rate
-IF DEF(_AMARANTH) || DEF(_RED) || DEF(_BLUE)
+IF DEF(_REPURPLED) || DEF(_RED) || DEF(_BLUE)
 	db 3, RATTATA   ; 20%
 	db 3, PIDGEY    ; 20%
 	db 4, RATTATA   ; 10%

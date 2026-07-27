@@ -1,6 +1,6 @@
-# Pokémon Amaranth
+# Pokémon: Repurpled Edition
 
-Pokémon Amaranth is a reimagining of the first generation of Pokémon, with the aim of exploring what could have been done with the basic gameplay systems and engine of Pokémon Red & Blue if they had followed a different design philosophy. While many cosmetic and informational quality-of-life changes have been added, and I have made a number of drastic non-canon changes to the moves, types, pokémon, and maps, I've tried not to make too many changes to the underlying battle engine or core gameplay systems, in order to retain some of the spirit of the originals, warts and all.
+Pokémon: Repurpled Edition is a reimagining of the first generation of Pokémon, with the aim of exploring what could have been done with the basic gameplay systems and engine of Pokémon Red & Blue if they had followed a different design philosophy. While many cosmetic and informational quality-of-life changes have been added, and I have made a number of drastic non-canon changes to the moves, types, pokémon, and maps, I've tried not to make too many changes to the underlying battle engine or core gameplay systems, in order to retain some of the spirit of the originals, warts and all.
 
 ## Mechanical Features
 
@@ -49,11 +49,11 @@ The type chart is identical to the Gen 6+ type chart with the following exceptio
 * `POISON` is `SUPER EFFECTIVE` against `BUG`
 * `FIRE` no longer resists `ICE`
 
-See the [Pokémon Amaranth Type Chart](https://aadit.codes/typechart/#AAAAAA4A696FAAB66EB66AEAE6AAD6A3AA6A9E69D9E66A6DAFAAE6EAB995CBDAAE96B5A3BB6B89EAEA9EEAB6A6AAAFA6A869AE79E9B5BAB67BAA62AAAAEB9AAAAAAAAE4AAA6AEB9995BAAAEA79AADAAAF6) for a visual reference.
+See the [Pokémon Repurpled Type Chart](https://aadit.codes/typechart/#AAAAAA4A696FAAB66EB66AEAE6AAD6A3AA6A9E69D9E66A6DAFAAE6EAB995CBDAAE96B5A3BB6B89EAEA9EEAB6A6AAAFA6A869AE79E9B5BAB67BAA62AAAAEB9AAAAAAAAE4AAA6AEB9995BAAAEA79AADAAAF6) for a visual reference.
 
 ## Gallery
 
-![pokémon amaranth title screen](docs/gallery/title-screen.png) 
+![pokémon repurpled title screen](docs/gallery/title-screen.png)
 ![improved move infobox](docs/gallery/move-infobox.png) 
 ![town map on start menu](docs/gallery/town-map.png) 
 ![show move info on learn attempt](docs/gallery/learn-moves.png)

@@ -121,7 +121,7 @@ DisplayTitleScreen:
 	call SaveScreenTilesToBuffer2
 	call LoadScreenTilesFromBuffer2
 	call EnableLCD
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 	ld a, FARFETCHD ; which Pokemon to show first on the title screen
 ENDC
 IF DEF(_RED)
@@ -398,7 +398,7 @@ INCLUDE "data/pokemon/title_mons.asm"
 
 ; prints version text (red, blue)
 PrintGameVersionOnTitleScreen:
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 	hlcoord 5, 8
 ELSE
 	hlcoord 7, 8
@@ -408,8 +408,8 @@ ENDC
 
 ; these point to special tiles specifically loaded for that purpose and are not usual text
 VersionOnTitleScreenText:
-IF DEF(_AMARANTH)
-	db $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,"@" ; "Amaranth Version"
+IF DEF(_REPURPLED)
+	db $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,"@" ; "Repurpled Version"
 ENDC
 IF DEF(_RED)
 	db $60,$61,$7F,$65,$66,$67,$68,$69,"@" ; "Red Version"

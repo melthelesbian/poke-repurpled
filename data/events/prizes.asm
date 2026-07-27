@@ -9,7 +9,7 @@ NoThanksText:
 PrizeMenuMon1Entries:
 	db ABRA
 	db CLEFAIRY
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 	db JIGGLYPUFF
 ENDC
 IF DEF(_RED)
@@ -27,7 +27,7 @@ PrizeMenuMon1Cost:
 	db "@"
 
 PrizeMenuMon2Entries:
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
     db TANGELA
 ENDC
 IF DEF(_RED)

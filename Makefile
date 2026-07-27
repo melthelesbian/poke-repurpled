@@ -1,13 +1,13 @@
 roms := \
-	amaranth.gbc \
-	amaranth_debug.gbc \
-	amaranth_red.gbc \
-	amaranth_red_debug.gbc \
-	amaranth_blue.gbc \
-	amaranth_blue_debug.gbc
+	repurpled.gbc \
+	repurpled_debug.gbc \
+	repurpled_red.gbc \
+	repurpled_red_debug.gbc \
+	repurpled_blue.gbc \
+	repurpled_blue_debug.gbc
 patches := \
-	amaranth_red.patch \
-	amaranth_blue.patch
+	repurpled_red.patch \
+	repurpled_blue.patch
 
 rom_obj := \
 	audio.o \
@@ -20,14 +20,14 @@ rom_obj := \
 	gfx/sprites.o \
 	gfx/tilesets.o
 
-amaranth_obj            := $(rom_obj:.o=_amrnth.o)
-amaranth_debug_obj      := $(rom_obj:.o=_amrnth_debug.o)
-amaranth_red_obj        := $(rom_obj:.o=_amrnth_red.o)
-amaranth_red_debug_obj  := $(rom_obj:.o=_amrnth_red_debug.o)
-amaranth_blue_obj       := $(rom_obj:.o=_amrnth_blue.o)
-amaranth_blue_debug_obj := $(rom_obj:.o=_amrnth_blue_debug.o)
-amaranth_red_vc_obj     := $(rom_obj:.o=_amrnth_red_vc.o)
-amaranth_blue_vc_obj    := $(rom_obj:.o=_amrnth_blue_vc.o)
+repurpled_obj            := $(rom_obj:.o=_repurpled.o)
+repurpled_debug_obj      := $(rom_obj:.o=_repurpled_debug.o)
+repurpled_red_obj        := $(rom_obj:.o=_repurpled_red.o)
+repurpled_red_debug_obj  := $(rom_obj:.o=_repurpled_red_debug.o)
+repurpled_blue_obj       := $(rom_obj:.o=_repurpled_blue.o)
+repurpled_blue_debug_obj := $(rom_obj:.o=_repurpled_blue_debug.o)
+repurpled_red_vc_obj     := $(rom_obj:.o=_repurpled_red_vc.o)
+repurpled_blue_vc_obj    := $(rom_obj:.o=_repurpled_blue_vc.o)
 
 
 ### Build tools
@@ -51,16 +51,16 @@ RGBLINK ?= $(RGBDS)rgblink
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
-.PHONY: all amaranth red blue blue_debug clean tidy compare tools
+.PHONY: all repurpled repurpled_debug red red_debug blue blue_debug red_vc blue_vc clean tidy compare tools
 
-amaranth:       amaranth.gbc
-amaranth_debug: amaranth_debug.gbc
-red:            amaranth_red.gbc
-red_debug:      amaranth_red_debug.gbc
-blue:           amaranth_blue.gbc
-blue_debug:     amaranth_blue_debug.gbc
-red_vc:         amaranth_red.patch
-blue_vc:        amaranth_blue.patch
+repurpled:       repurpled.gbc
+repurpled_debug: repurpled_debug.gbc
+red:            repurpled_red.gbc
+red_debug:      repurpled_red_debug.gbc
+blue:           repurpled_blue.gbc
+blue_debug:     repurpled_blue_debug.gbc
+red_vc:         repurpled_red.patch
+blue_vc:        repurpled_blue.patch
 all: $(roms) $(patches)
 
 clean: tidy
@@ -79,14 +79,14 @@ tidy:
 	      $(patches:.patch=_vc.sym) \
 	      $(patches:.patch=_vc.map) \
 	      $(patches:%.patch=vc/%.constants.sym) \
-		  $(amaranth_obj) \
-	      $(amaranth_red_obj) \
-	      $(amaranth_blue_obj) \
-	      $(amaranth_red_vc_obj) \
-	      $(amaranth_blue_vc_obj) \
-		  $(amaranth_debug_obj) \
-		  $(amaranth_red_debug_obj) \
-	      $(amaranth_blue_debug_obj) \
+		  $(repurpled_obj) \
+	      $(repurpled_red_obj) \
+	      $(repurpled_blue_obj) \
+	      $(repurpled_red_vc_obj) \
+	      $(repurpled_blue_vc_obj) \
+		  $(repurpled_debug_obj) \
+		  $(repurpled_red_debug_obj) \
+	      $(repurpled_blue_debug_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
 
@@ -103,14 +103,14 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(amaranth_obj):            RGBASMFLAGS += -D _AMARANTH
-$(amaranth_debug_obj):      RGBASMFLAGS += -D _AMARANTH -D _DEBUG
-$(amaranth_red_obj):        RGBASMFLAGS += -D _RED
-$(amaranth_red_debug_obj):  RGBASMFLAGS += -D _RED -D _DEBUG
-$(amaranth_blue_obj):       RGBASMFLAGS += -D _BLUE
-$(amaranth_blue_debug_obj): RGBASMFLAGS += -D _BLUE -D _DEBUG
-$(amaranth_red_vc_obj):     RGBASMFLAGS += -D _RED -D _RED_VC
-$(amaranth_blue_vc_obj):    RGBASMFLAGS += -D _BLUE -D _BLUE_VC
+$(repurpled_obj):            RGBASMFLAGS += -D _REPURPLED
+$(repurpled_debug_obj):      RGBASMFLAGS += -D _REPURPLED -D _DEBUG
+$(repurpled_red_obj):        RGBASMFLAGS += -D _RED
+$(repurpled_red_debug_obj):  RGBASMFLAGS += -D _RED -D _DEBUG
+$(repurpled_blue_obj):       RGBASMFLAGS += -D _BLUE
+$(repurpled_blue_debug_obj): RGBASMFLAGS += -D _BLUE -D _DEBUG
+$(repurpled_red_vc_obj):     RGBASMFLAGS += -D _RED -D _RED_VC
+$(repurpled_blue_vc_obj):    RGBASMFLAGS += -D _BLUE -D _BLUE_VC
 
 %.patch: vc/%.constants.sym %_vc.gbc %.gbc vc/%.patch.template
 	tools/make_patch $*_vc.sym $^ $@
@@ -134,14 +134,14 @@ $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 endef
 
 # Dependencies for objects (drop _red and _blue from asm file basenames)
-$(foreach obj, $(amaranth_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth.o=.asm))))
-$(foreach obj, $(amaranth_debug_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_debug.o=.asm))))
-$(foreach obj, $(amaranth_red_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_red.o=.asm))))
-$(foreach obj, $(amaranth_red_debug_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_red_debug.o=.asm))))
-$(foreach obj, $(amaranth_blue_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_blue.o=.asm))))
-$(foreach obj, $(amaranth_blue_debug_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_blue_debug.o=.asm))))
-$(foreach obj, $(amaranth_red_vc_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_red_vc.o=.asm))))
-$(foreach obj, $(amaranth_blue_vc_obj), $(eval $(call DEP,$(obj),$(obj:_amrnth_blue_vc.o=.asm))))
+$(foreach obj, $(repurpled_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled.o=.asm))))
+$(foreach obj, $(repurpled_debug_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_debug.o=.asm))))
+$(foreach obj, $(repurpled_red_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_red.o=.asm))))
+$(foreach obj, $(repurpled_red_debug_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_red_debug.o=.asm))))
+$(foreach obj, $(repurpled_blue_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_blue.o=.asm))))
+$(foreach obj, $(repurpled_blue_debug_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_blue_debug.o=.asm))))
+$(foreach obj, $(repurpled_red_vc_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_red_vc.o=.asm))))
+$(foreach obj, $(repurpled_blue_vc_obj), $(eval $(call DEP,$(obj),$(obj:_repurpled_blue_vc.o=.asm))))
 
 # Dependencies for VC files that need to run scan_includes
 %.constants.sym: %.constants.asm $(shell tools/scan_includes %.constants.asm) $(preinclude_deps) | rgbdscheck.o
@@ -152,23 +152,23 @@ endif
 
 %.asm: ;
 
-amaranth_pad            = 0x00
-amaranth_debug_pad      = 0x00
-amaranth_red_pad        = 0x00
-amaranth_red_debug_pad  = 0xff
-amaranth_blue_pad       = 0x00
-amaranth_red_vc_pad     = 0x00
-amaranth_blue_vc_pad    = 0x00
-amaranth_blue_debug_pad = 0xff
+repurpled_pad            = 0x00
+repurpled_debug_pad      = 0x00
+repurpled_red_pad        = 0x00
+repurpled_red_debug_pad  = 0xff
+repurpled_blue_pad       = 0x00
+repurpled_red_vc_pad     = 0x00
+repurpled_blue_vc_pad    = 0x00
+repurpled_blue_debug_pad = 0xff
 
-amaranth_opt            = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "AMARANTH 25"
-amaranth_debug_opt      = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "AMARANTH 25"
-amaranth_red_opt        = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
-amaranth_red_debug_opt  = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
-amaranth_blue_opt       = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
-amaranth_blue_debug_opt = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
-amaranth_red_vc_opt     = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
-amaranth_blue_vc_opt    = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
+repurpled_opt            = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "PK REPURPLED E"
+repurpled_debug_opt      = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "PK REPURPLED E"
+repurpled_red_opt        = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
+repurpled_red_debug_opt  = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
+repurpled_blue_opt       = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
+repurpled_blue_debug_opt = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
+repurpled_red_vc_opt     = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
+repurpled_blue_vc_opt    = -jsv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -p $($*_pad) -d -m $*.map -n $*.sym -l layout.link -o $@ $(filter %.o,$^)

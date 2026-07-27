@@ -392,7 +392,7 @@ MoveAnimationTiles1:
 	INCBIN "gfx/battle/move_anim_1.2bpp"
 
 SlotMachineTiles2:
-IF DEF(_AMARANTH)
+IF DEF(_REPURPLED)
 	INCBIN "gfx/slots/green_slots_2.2bpp"
 ENDC
 IF DEF(_RED)

@@ -1,6 +1,6 @@
 Version_GFX:
-IF DEF(_AMARANTH)
-	INCBIN "gfx/title/amaranth_version.1bpp" ; 10 tiles
+IF DEF(_REPURPLED)
+	INCBIN "gfx/title/repurpled_edition.1bpp" ; 10 tiles
 ENDC
 IF DEF(_RED)
 	INCBIN "gfx/title/red_version.1bpp" ; 10 tiles

@@ -1,6 +1,6 @@
 Route24WildMons:
 	def_grass_wildmons 25 ; encounter rate
-IF DEF(_RED) || DEF(_BLUE) || DEF(_AMARANTH)
+IF DEF(_RED) || DEF(_BLUE) || DEF(_REPURPLED)
 	db 11, ODDISH     ; 20%
 	db 11, BELLSPROUT ; 20%
 	db 10, EEVEE      ; 10%
