@@ -11,7 +11,9 @@ CinnabarLabMetronomeRoom_TextPointers:
 
 CinnabarLabMetronomeRoomScientist1Text:
 	text_asm
-	CheckEvent EVENT_GOT_TM51
+	; CheckEvent EVENT_GOT_TM51
+	ld b, TM_METRONOME
+	call IsItemInBag
 	jr nz, .got_item
 	ld hl, .Text
 	call PrintText
