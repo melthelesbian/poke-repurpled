@@ -114,7 +114,7 @@ _Route19Swimmer6EndBattleText::
 	prompt
 
 _Route19Swimmer6AfterBattleText::
-	text "My boy friend"
+	text "My boyfriend"
 	line "wanted to swim to"
 	cont "SEAFOAM ISLANDS."
 	done

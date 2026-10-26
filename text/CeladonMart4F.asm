@@ -1,7 +1,7 @@
 _CeladonMart4FSuperNerdText::
 	text "I'm getting a"
 	line "# DOLL for my"
-	cont "girl friend!"
+	cont "girlfriend!"
 	done
 
 _CeladonMart4FYoungsterText::

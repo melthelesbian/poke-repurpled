@@ -103,7 +103,7 @@ _Route20CooltrainerMAfterBattleText::
 	done
 
 _Route20Swimmer7BattleText::
-	text "My boy friend gave"
+	text "My boyfriend gave"
 	line "me big pearls!"
 	done
 

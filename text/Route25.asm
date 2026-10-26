@@ -36,8 +36,8 @@ _Route25Youngster2AfterBattleText::
 
 _Route25CooltrainerMBattleText::
 	text "I'm a cool guy."
-	line "I've got a girl"
-	cont "friend!"
+	line "I've got a cool"
+	cont "girlfriend!"
 	done
 
 _Route25CooltrainerMEndBattleText::
@@ -51,8 +51,8 @@ _Route25CooltrainerMAfterBattleText::
 	done
 
 _Route25CooltrainerF1BattleText::
-	text "Hi! My boy"
-	line "friend is cool!"
+	text "Hi! My boyfriend"
+	line "is cool!"
 	done
 
 _Route25CooltrainerF1EndBattleText::
