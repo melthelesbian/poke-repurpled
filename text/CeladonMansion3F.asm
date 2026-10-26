@@ -49,6 +49,17 @@ _CeladonMansion3FRomHackerText::
 	cont "having fun!"
 	done
 
+_CeladonMansion3FRomHackerPostGameText::
+	text "If you hold UP+B,"
+	line "after throwing a"
+	cont "# BALL they"
+	cont "won't break out!"
+
+	para "The timing can be"
+	line "a little tricky"
+	cont "though."
+	done
+
 _CeladonMansion3FGameProgramPCText::
 	text "It's the game"
 	line "program! Messing"

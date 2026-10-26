@@ -56,6 +56,16 @@ CeladonMansion3FGameDesignerText:
 
 CeladonMansion3FRomHackerText:
 	text_far _CeladonMansion3FRomHackerText
+	text_promptbutton
+	text_asm
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	jr z, .done
+	ld hl, .PostGameText
+	call PrintText
+.done
+	jp TextScriptEnd
+.PostGameText
+	text_far _CeladonMansion3FRomHackerPostGameText
 	text_end
 
 CeladonMansion3FGameProgramPCText:
