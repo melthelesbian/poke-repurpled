@@ -6,19 +6,20 @@ TradeMons:
 	; from the Japanese Blue trades, which used species that evolve.
 	; Japanese Red and Green used TRADE_DIALOGSET_CASUAL, and had
 	; the same species as English Red and Blue.
-	db NIDORINO,   NIDORINA,  TRADE_DIALOGSET_EVOLUTION, "NINA@@@@@@@" ; Route 11
-	db CLEFAIRY,   CHANSEY,   TRADE_DIALOGSET_HAPPY,     "HOPE@@@@@@@" ; Route 25
-	db MR_MIME,    KADABRA,   TRADE_DIALOGSET_CASUAL,    "ALANA@@@@@@" ; Route 18
-	db JIGGLYPUFF, GLOOM,	  TRADE_DIALOGSET_CASUAL,  	 "DRIPPY@@@@@" ; Route 15
-	db PONYTA,     SEEL,      TRADE_DIALOGSET_HAPPY,     "SAILOR@@@@@" ; Celadon Hotel
-	db SPEAROW,    FARFETCHD, TRADE_DIALOGSET_HAPPY,     "DUX@@@@@@@@" ; Vermilion City
-	db SLOWPOKE,   MAGMAR,    TRADE_DIALOGSET_CASUAL,    "MAGMARC@@@@" ; Cerulean City
-	db POLIWHIRL,  JYNX,      TRADE_DIALOGSET_EVOLUTION, "LOLA@@@@@@@" ; Route 2
-	db HAUNTER,    LAPRAS,    TRADE_DIALOGSET_EVOLUTION, "AURORA@@@@@" ; Pokemon Tower 1F
-	db SHELLDER,   KRABBY,    TRADE_DIALOGSET_HAPPY,     "CLAMPS@@@@@" ; Underground Crossroads
-	db GLOOM,      POLIWHIRL, TRADE_DIALOGSET_EVOLUTION, "SWIRLS@@@@@" ; Underground Crossroads
-	db NIDORINA,   NIDORINO,  TRADE_DIALOGSET_EVOLUTION, "ROYAL@@@@@@" ; Route 5 Underground
-	db PRIMEAPE,   MACHOKE,   TRADE_DIALOGSET_CASUAL,    "DORIS@@@@@@" ; Cinnabar Lab
-	db MUK,        HAUNTER,   TRADE_DIALOGSET_HAPPY,     "SPECTRE@@@@" ; Cinnabar Lab
-	db RHYDON,     GRAVELER,  TRADE_DIALOGSET_CASUAL,    "ROCKETTE@@@" ; Cinnabar Lab
+	db NIDORINO,   NIDORINA,   TRADE_DIALOGSET_EVOLUTION, "NINA@@@@@@@" ; Route 11
+	db CLEFAIRY,   CHANSEY,    TRADE_DIALOGSET_HAPPY,     "HOPE@@@@@@@" ; Route 25
+	db MR_MIME,    KADABRA,    TRADE_DIALOGSET_CASUAL,    "ALANA@@@@@@" ; Route 18
+	db JIGGLYPUFF, GLOOM,	   TRADE_DIALOGSET_CASUAL,    "DRIPPY@@@@@" ; Route 15
+	db PONYTA,     SEEL,       TRADE_DIALOGSET_HAPPY,     "SAILOR@@@@@" ; Celadon Hotel
+	db SPEAROW,    FARFETCHD,  TRADE_DIALOGSET_HAPPY,     "DUX@@@@@@@@" ; Vermilion City
+	db SLOWPOKE,   MAGMAR,     TRADE_DIALOGSET_CASUAL,    "MAGMARC@@@@" ; Cerulean City
+	db POLIWHIRL,  JYNX,       TRADE_DIALOGSET_EVOLUTION, "LOLA@@@@@@@" ; Route 2
+	db HAUNTER,    LAPRAS,     TRADE_DIALOGSET_EVOLUTION, "AURORA@@@@@" ; Pokemon Tower 1F
+	db SHELLDER,   KRABBY,     TRADE_DIALOGSET_HAPPY,     "CLAMPS@@@@@" ; Underground Crossroads
+	db GLOOM,      POLIWHIRL,  TRADE_DIALOGSET_EVOLUTION, "SWIRLS@@@@@" ; Underground Crossroads
+	db KANGASKHAN, ELECTABUZZ, TRADE_DIALOGSET_HAPPY,     "SPARKER@@@@" ; Underground Crossroads
+	db NIDORINA,   NIDORINO,   TRADE_DIALOGSET_EVOLUTION, "ROYAL@@@@@@" ; Route 5 Underground
+	db PRIMEAPE,   MACHOKE,    TRADE_DIALOGSET_CASUAL,    "DORIS@@@@@@" ; Cinnabar Lab
+	db MUK,        HAUNTER,    TRADE_DIALOGSET_HAPPY,     "SPECTRE@@@@" ; Cinnabar Lab
+	db RHYDON,     GRAVELER,   TRADE_DIALOGSET_CASUAL,    "ROCKETTE@@@" ; Cinnabar Lab
 	assert_table_length NUM_NPC_TRADES
