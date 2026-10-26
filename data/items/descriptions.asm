@@ -307,16 +307,16 @@ TeaShipmentDescription:
 	feed "homemade tea.@"
 
 FreshWaterDescription:
-    db "Restores 25 HP of"
-    feed "a #MON.@"
+    db "Restores 25 HP"
+    feed "out of battle.@"
 
 IcedTeaDescription:
-    db "Restores 50 HP of"
-    feed "a #MON.@"
+    db "Restores 50 HP"
+    feed "out of battle.@"
 
 LemonadeDescription:
-    db "Restores 75 HP of"
-    feed "a #MON.@"
+    db "Restores 75 HP"
+    feed "out of battle.@"
 
 GoldTeethDescription:
     db "Shiny gold teeth,"
