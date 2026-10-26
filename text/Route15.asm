@@ -172,5 +172,5 @@ _Route15SignText::
 	done
 
 _Route15HouseSignText::
-	text "[TODO) Write Sign"
+	text "MELODY's house"
 	done
