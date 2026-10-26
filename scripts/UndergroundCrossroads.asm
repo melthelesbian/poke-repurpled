@@ -6,6 +6,7 @@ UndergroundCrossroads_TextPointers:
 	dw_const UndergroundCrossroadsSailorText, TEXT_UNDERGROUNDCROSSROADS_SAILOR
 	dw_const UndergroundCrossroadsLittleGirlText, TEXT_UNDERGROUNDCROSSROADS_LITTLE_GIRL
 	dw_const UndergroundCrossroadsSilphWorkerFText, TEXT_UNDERGROUNDCROSSROADS_SILPH_WORKER_F
+	dw_const UndergroundCrossroadsGirlText, TEXT_UNDERGROUNDCROSSROADS_GIRL
 
 UndergroundCrossroadsSailorText:
 	text_asm
@@ -27,3 +28,9 @@ UndergroundCrossroadsSilphWorkerFText:
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 	jp TextScriptEnd
+
+UndergroundCrossroadsGirlText:
+	text "Trainers come here"
+	line "looking to trade"
+	cont "their #MON!"
+	done
