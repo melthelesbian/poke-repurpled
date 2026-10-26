@@ -26,6 +26,8 @@ BluesHouse_TextPointers:
 
 BluesHouseDaisySittingText:
 	text_asm
+	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
+	jr nz, .champion
 	CheckEvent EVENT_GOT_TOWN_MAP
 	jr nz, .got_town_map
 	CheckEvent EVENT_GOT_POKEDEX
@@ -50,6 +52,24 @@ BluesHouseDaisySittingText:
 	call PrintText
 	jr .done
 
+.champion
+	ld b, MASTER_BALL
+	call IsItemInBag
+	jr nz, .has_master_ball
+	ld hl, BluesHouseDaisyOfferMasterBallText
+	call PrintText
+	lb bc, MASTER_BALL, 1
+	call GiveItem
+	jr nc, .bag_full
+	ld hl, BluesHouseDaisyGotMasterBallText
+	call PrintText
+	jr .done
+
+.has_master_ball
+	ld hl, BluesHouseDaisyHasMasterBallText
+	call PrintText
+	jr .done
+
 .bag_full
 	ld hl, BluesHouseDaisyBagFullText
 	call PrintText
@@ -71,6 +91,19 @@ GotMapText:
 
 BluesHouseDaisyBagFullText:
 	text_far _BluesHouseDaisyBagFullText
+	text_end
+
+BluesHouseDaisyOfferMasterBallText:
+	text_far _BluesHouseDaisyOfferMasterBallText
+	text_end
+
+BluesHouseDaisyGotMasterBallText:
+	text_far _BluesHouseDaisyGotMasterBallText
+	sound_get_key_item
+	text_end
+
+BluesHouseDaisyHasMasterBallText:
+	text_far _BluesHouseDaisyHasMasterBallText
 	text_end
 
 BluesHouseDaisyUseMapText:

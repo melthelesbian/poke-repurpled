@@ -38,3 +38,22 @@ _BluesHouseTownMapText::
 	text "It's a big map!"
 	line "This is useful!"
 	done
+
+_BluesHouseDaisyOfferMasterBallText::
+	text "I think you need"
+	line "this more than"
+	cont "I do. Take it!"
+	prompt
+
+_BluesHouseDaisyGotMasterBallText::
+	text "<PLAYER> got a"
+	line "MASTER BALL!"
+	done
+
+_BluesHouseDaisyHasMasterBallText::
+	text "My girlfriend at"
+	line "SILPH CO. keeps"
+	cont "giving me these."
+	
+	para "Don't tell!"
+	done
