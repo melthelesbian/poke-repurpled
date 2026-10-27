@@ -11,9 +11,8 @@ ENDC
 
 	ds $100
 
-; [TODO) credit file or add to end game credits
-; credit shinpokered for crediting Dracrius/pocketrgb-en/commit/b7750e2ded2b8acd0b507c7358057591d4c0351b
-; for correct values for green sgb border
+; shinpokered credited Dracrius/pocketrgb-en/commit/b7750e2ded2b8acd0b507c7358057591d4c0351b
+; for correct values for green sgb border, which i no longer use
 IF DEF(_REPURPLED)
 	RGB 30,29,29 ; PAL_SGB1
 	RGB 18,00,25
