@@ -172,7 +172,7 @@ StatusScreen:
 	call LoadFlippedFrontSpriteByMonIndex ; draw Pokémon picture
 	ld a, [wCurPartySpecies]
 	call PlayCry
-	call WaitForTextScrollButtonPress
+	call StatusScreenWaitForButton
 	pop af
 	ldh [hTileAnimations], a
 	ret
@@ -288,6 +288,150 @@ PrintStat:
 	ld de, SCREEN_WIDTH * 2
 	add hl, de
 	ret
+
+; like WaitForTextScrollButtonPress, but SELECT cycles the stats box
+; between stat values, DVs and stat experience
+StatusScreenWaitForButton:
+	ldh a, [hDownArrowBlinkCount1]
+	push af
+	ldh a, [hDownArrowBlinkCount2]
+	push af
+	xor a
+	ldh [hDownArrowBlinkCount1], a
+	ld a, $6
+	ldh [hDownArrowBlinkCount2], a
+	ld c, 0 ; showing stat values
+.loop
+	push bc
+	hlcoord 18, 16
+	call HandleDownArrowBlinkTiming
+	call JoypadLowSensitivity
+	pop bc
+	ldh a, [hJoy5]
+	bit BIT_SELECT, a
+	jr nz, .nextMode
+	and A_BUTTON | B_BUTTON
+	jr z, .loop
+	pop af
+	ldh [hDownArrowBlinkCount2], a
+	pop af
+	ldh [hDownArrowBlinkCount1], a
+	ret
+.nextMode
+	ld a, c
+	inc a
+	cp 3
+	jr c, .gotMode
+	xor a
+.gotMode
+	ld c, a
+	push bc
+	call PrintStatsBoxValues
+	pop bc
+	jr .loop
+
+; a = 0: stat values, 1: DVs, 2: stat experience
+PrintStatsBoxValues:
+	push af
+	hlcoord 1, 10
+	call .clearRow
+	hlcoord 1, 12
+	call .clearRow
+	hlcoord 1, 14
+	call .clearRow
+	hlcoord 1, 16
+	call .clearRow
+	hlcoord 12, 4 ; HP fraction
+	ld bc, 7
+	ld a, ' '
+	call FillMemory
+	pop af
+	and a
+	jr z, .statValues
+	dec a
+	jr z, .dvs
+; stat experience
+	hlcoord 14, 4
+	ld de, wLoadedMonHPExp
+	lb bc, 2, 5
+	call PrintNumber
+	hlcoord 4, 10
+	ld de, wLoadedMonAttackExp
+	lb bc, 2, 5
+	call PrintStat
+	ld de, wLoadedMonDefenseExp
+	call PrintStat
+	ld de, wLoadedMonSpeedExp
+	call PrintStat
+	ld de, wLoadedMonSpecialExp
+	jp PrintNumber
+.statValues
+	hlcoord 12, 4
+	ld de, wLoadedMonHP
+	lb bc, 2, 3
+	call PrintNumber
+	ld a, '/'
+	ld [hli], a
+	ld de, wLoadedMonMaxHP
+	lb bc, 2, 3
+	call PrintNumber
+	ld d, $0
+	jp PrintStatsBox
+.dvs
+	ld a, [wLoadedMonDVs]
+	ld b, a ; attack DV in the high nibble, defense DV in the low nibble
+	ld a, [wLoadedMonDVs + 1]
+	ld c, a ; speed DV in the high nibble, special DV in the low nibble
+; the HP DV is made of the lowest bit of each other DV
+	ld a, b
+	and $10 ; attack
+	rrca
+	ld d, a
+	ld a, b
+	and $1 ; defense
+	add a
+	add a
+	or d
+	ld d, a
+	ld a, c
+	and $10 ; speed
+	swap a
+	add a
+	or d
+	ld d, a
+	ld a, c
+	and $1 ; special
+	or d
+	hlcoord 17, 4
+	call .printDV ; HP
+	hlcoord 7, 10
+	ld a, b
+	swap a
+	call .printDV ; attack
+	hlcoord 7, 12
+	ld a, b
+	call .printDV ; defense
+	hlcoord 7, 14
+	ld a, c
+	swap a
+	call .printDV ; speed
+	hlcoord 7, 16
+	ld a, c ; special
+.printDV
+	and $f
+	cp 10
+	jr c, .oneDigit
+	ld [hl], '1'
+	sub 10
+.oneDigit
+	inc hl
+	add '0'
+	ld [hl], a
+	ret
+.clearRow
+	ld bc, 8
+	ld a, ' '
+	jp FillMemory
 
 StatsText:
 	db   "ATTACK"
