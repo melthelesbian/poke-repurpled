@@ -1,5 +1,6 @@
 	object_const_def
 	const_export PEWTERMART_CLERK
+	const_export PEWTERMART_TM_VENDOR
 	const_export PEWTERMART_YOUNGSTER
 	const_export PEWTERMART_SUPER_NERD
 
