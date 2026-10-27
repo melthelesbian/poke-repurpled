@@ -1305,7 +1305,7 @@ ItemUseMedicine:
 	ld a, 10
 	ld b, a
 	ld a, [hl] ; a = MSB of stat experience of the appropriate stat
-	cp 100 ; is there already at least 25600 (256 * 100) stat experience?
+	cp 255 ; hax: uncapped baby | is there already at least 25600 (256 * 100) stat experience?
 	jr nc, .vitaminNoEffect ; if so, vitamins can't add any more
 	add b ; add 2560 (256 * 10) stat experience
 	jr nc, .noCarry3 ; a carry should be impossible here, so this will always jump
