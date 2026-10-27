@@ -11,7 +11,8 @@
 
 ; wOptions
 DEF TEXT_DELAY_MASK EQU %111
-	const_def 6
+	const_def 5
+	const BIT_AUTO_RUN         ; 5
 	const BIT_BATTLE_SHIFT     ; 6
 	const BIT_BATTLE_ANIMATION ; 7
 

@@ -286,8 +286,17 @@ OverworldLoopLessDelay::
 	jr nz, .normalPlayerSpriteAdvancement
 .bikeSpeedup
 	; [info] Running Shoes & Fast Bike
-	; credit to Luna
+	; credit to Luna for original code, adapted for autorun by me
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
+	jr nz, .notFastBike
+	; check for auto-run
+	ld a, [wOptions]
+	bit BIT_AUTO_RUN, a
 	ld a, [hJoyHeld] ; Check what buttons are being pressed
+	jr z, .checkFastBikeButtonHeld
+	cpl ; both true, so invert the bits for slowdown
+.checkFastBikeButtonHeld
 	and B_BUTTON ;
 	jr z, .notFastBike
 	call DoBikeSpeedup
@@ -297,7 +306,16 @@ OverworldLoopLessDelay::
 	jr .notRunning
 .normalPlayerSpriteAdvancement
 	; [info] Running shoes
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
+	jr nz, .notRunning
+	; check for auto-run
+	ld a, [wOptions]
+	bit BIT_AUTO_RUN, a
 	ld a, [hJoyHeld] ; Check what buttons are being pressed
+	jr z, .checkRunningButtonHeld
+	cpl ; both true, so invert the bits for slowdown
+.checkRunningButtonHeld
 	and B_BUTTON ; Are you holding B?
 	jr z, .notRunning ; If you aren't holding B, skip ahead to step normally.
 	call DoBikeSpeedup

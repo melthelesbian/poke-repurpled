@@ -442,27 +442,22 @@ SaveScreenInfoText:
 
 DisplayOptionMenu:
 	hlcoord 0, 0
-	ld b, 3
-	ld c, 18
-	call TextBoxBorder
-	hlcoord 0, 5
-	ld b, 3
-	ld c, 18
-	call TextBoxBorder
-	hlcoord 0, 10
-	ld b, 3
+	ld b, 15
 	ld c, 18
 	call TextBoxBorder
 	hlcoord 1, 1
 	ld de, TextSpeedOptionText
 	call PlaceString
-	hlcoord 1, 6
+	hlcoord 1, 5
+	ld de, AutoRunOptionText
+	call PlaceString
+	hlcoord 1, 9
 	ld de, BattleAnimationOptionText
 	call PlaceString
-	hlcoord 1, 11
+	hlcoord 1, 13
 	ld de, BattleStyleOptionText
 	call PlaceString
-	hlcoord 2, 16
+	hlcoord 2, 17
 	ld de, OptionMenuCancelText
 	call PlaceString
 	xor a
@@ -496,7 +491,7 @@ DisplayOptionMenu:
 	bit BIT_A_BUTTON, b
 	jr z, .checkDirectionKeys
 	ld a, [wTopMenuItemY]
-	cp 16 ; is the cursor on Cancel?
+	cp 17 ; is the cursor on Cancel?
 	jr nz, .loop
 .exitMenu
 	ld a, SFX_PRESS_AB
@@ -512,44 +507,52 @@ DisplayOptionMenu:
 	jr nz, .downPressed
 	bit BIT_D_UP, b
 	jr nz, .upPressed
-	cp 8 ; cursor in Battle Animation section?
+	cp 7 ; cursor in Auto Run section?
+	jr z, .cursorInAutoRun
+	cp 11 ; cursor in Battle Animation section?
 	jr z, .cursorInBattleAnimation
-	cp 13 ; cursor in Battle Style section?
+	cp 15 ; cursor in Battle Style section?
 	jr z, .cursorInBattleStyle
-	cp 16 ; cursor on Cancel?
+	cp 17 ; cursor on Cancel?
 	jr z, .loop
 .cursorInTextSpeed
 	bit BIT_D_LEFT, b
 	jp nz, .pressedLeftInTextSpeed
 	jp .pressedRightInTextSpeed
 .downPressed
-	cp 16
-	ld b, -13
+	cp 17
+	ld b, -14
 	ld hl, wOptionsTextSpeedCursorX
 	jr z, .updateMenuVariables
-	ld b, 5
+	ld b, 4
 	cp 3
 	inc hl
 	jr z, .updateMenuVariables
-	cp 8
+	cp 7
 	inc hl
 	jr z, .updateMenuVariables
-	ld b, 3
+	cp 11
+	inc hl
+	jr z, .updateMenuVariables
+	ld b, 2
 	inc hl
 	jr .updateMenuVariables
 .upPressed
-	cp 8
-	ld b, -5
+	cp 7
+	ld b, -4
 	ld hl, wOptionsTextSpeedCursorX
 	jr z, .updateMenuVariables
-	cp 13
+	cp 11
 	inc hl
 	jr z, .updateMenuVariables
-	cp 16
-	ld b, -3
+	cp 15
 	inc hl
 	jr z, .updateMenuVariables
-	ld b, 13
+	cp 17
+	ld b, -2
+	inc hl
+	jr z, .updateMenuVariables
+	ld b, 14
 	inc hl
 .updateMenuVariables
 	add b
@@ -558,6 +561,11 @@ DisplayOptionMenu:
 	ld [wTopMenuItemX], a
 	call PlaceUnfilledArrowMenuCursor
 	jp .loop
+.cursorInAutoRun
+	ld a, [wOptionsAutoRunCursorX] ; auto run cursor X coordinate
+	xor 1 ^ 10 ; toggle between 1 and 10
+	ld [wOptionsAutoRunCursorX], a
+	jp .eraseOldMenuCursor
 .cursorInBattleAnimation
 	ld a, [wOptionsBattleAnimCursorX] ; battle animation cursor X coordinate
 	xor 1 ^ 10 ; toggle between 1 and 10
@@ -597,6 +605,10 @@ TextSpeedOptionText:
 	db   "TEXT SPEED"
 	next " FAST  MEDIUM INST@"
 
+AutoRunOptionText:
+	db	"AUTO RUN"
+	next " ON       OFF@"
+
 BattleAnimationOptionText:
 	db   "BATTLE ANIMATION"
 	next " ON       OFF@"
@@ -622,6 +634,15 @@ SetOptionsFromCursorPositions:
 .textSpeedMatchFound
 	ld a, [hl]
 	ld d, a
+	ld a, [wOptionsAutoRunCursorX] ; auto run cursor X coordinate
+	dec a
+	jr z, .autoRunOn
+.autoRunOff
+	res BIT_AUTO_RUN, d
+	jr .checkBattleAnimation
+.autoRunOn
+	set BIT_AUTO_RUN, d
+.checkBattleAnimation
 	ld a, [wOptionsBattleAnimCursorX] ; battle animation cursor X coordinate
 	dec a
 	jr z, .battleAnimationOn
@@ -649,7 +670,7 @@ SetCursorPositionsFromOptions:
 	ld hl, TextSpeedOptionData + 1
 	ld a, [wOptions]
 	ld c, a
-	and $3f
+	and TEXT_DELAY_MASK
 	push bc
 	ld de, 2
 	call IsInArray
@@ -665,7 +686,7 @@ SetCursorPositionsFromOptions:
 	ld a, 10 ; Off
 .storeBattleAnimationCursorX
 	ld [wOptionsBattleAnimCursorX], a ; battle animation cursor X coordinate
-	hlcoord 0, 8
+	hlcoord 0, 11
 	call .placeUnfilledRightArrow
 	sla c
 	ld a, 1
@@ -673,10 +694,18 @@ SetCursorPositionsFromOptions:
 	ld a, 10
 .storeBattleStyleCursorX
 	ld [wOptionsBattleStyleCursorX], a ; battle style cursor X coordinate
-	hlcoord 0, 13
+	hlcoord 0, 15
+	call .placeUnfilledRightArrow
+	sla c
+	ld a, 10 ; Off
+	jr nc, .storeAutoRunCursorX
+	ld a, 1 ; On
+.storeAutoRunCursorX
+	ld [wOptionsAutoRunCursorX], a ; auto run cursor X coordinate
+	hlcoord 0, 7
 	call .placeUnfilledRightArrow
 ; cursor in front of Cancel
-	hlcoord 0, 16
+	hlcoord 0, 17
 	ld a, 1
 .placeUnfilledRightArrow
 	ld e, a
