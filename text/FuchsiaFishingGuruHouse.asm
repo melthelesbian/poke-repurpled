@@ -23,6 +23,6 @@ _FuchsiaFishingGuruHouseFishingGuruNoText::
 _FuchsiaFishingGuruHouseFishingGuruNoMoneyText::
 	text "Oh no!"
 
-	para "You have don't have"
+	para "You don't have"
 	line "enough money!"
 	done
