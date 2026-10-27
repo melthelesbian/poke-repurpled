@@ -32,7 +32,7 @@ _SSAnneB1FRoomsSailor2EndBattleText::
 _SSAnneB1FRoomsSailor2AfterBattleText::
 	text "Did you see the"
 	line "FISHING GURU in"
-	cont "VERMILION CITY?"
+	cont "CERULEAN CITY?"
 	done
 
 _SSAnneB1FRoomsSailor3BattleText::
