@@ -1225,6 +1225,12 @@ CinnabarGym_Blocks: INCBIN "maps/CinnabarGym.blk"
 INCLUDE "data/maps/headers/CinnabarLab.asm"
 INCLUDE "scripts/CinnabarLab.asm"
 INCLUDE "data/maps/objects/CinnabarLab.asm"
+
+INCLUDE "data/maps/headers/CeladonLab.asm"
+INCLUDE "scripts/CeladonLab.asm"
+INCLUDE "data/maps/objects/CeladonLab.asm"
+
+CeladonLab_Blocks: INCBIN "maps/CeladonLab.blk"
 CinnabarLab_Blocks: INCBIN "maps/CinnabarLab.blk"
 
 INCLUDE "data/maps/headers/CinnabarLabTradeRoom.asm"

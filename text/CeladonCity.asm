@@ -131,6 +131,10 @@ _CeladonCityPrizeExchangeSignText::
 	cont "PRIZE EXCHANGE"
 	done
 
+_CeladonCityLabSignText::
+	text "CELADON LAB"
+	done
+
 _CeladonCityGameCornerSignText::
 	text "ROCKET GAME CORNER"
 	line "The playground"

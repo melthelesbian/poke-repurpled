@@ -93,6 +93,97 @@ GiveFossilToCinnabarLab::
 	text_far _CinnabarLabFossilRoomScientist1ComeAgainText
 	text_end
 
+
+GiveFossilToCeladonLab::
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
+	xor a
+	ld [wCurrentMenuItem], a
+	ld a, A_BUTTON | B_BUTTON
+	ld [wMenuWatchedKeys], a
+	ld a, [wFilteredBagItemsCount]
+	dec a
+	ld [wMaxMenuItem], a
+	ld a, 2
+	ld [wTopMenuItemY], a
+	ld a, 1
+	ld [wTopMenuItemX], a
+	ld a, [wFilteredBagItemsCount]
+	dec a
+	ld bc, 2
+	ld hl, 3
+	call AddNTimes
+	dec l
+	ld b, l
+	ld c, $d
+	hlcoord 0, 0
+	call TextBoxBorder
+	call UpdateSprites
+	call PrintFossilsInBag
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
+	call HandleMenuInput
+	bit BIT_B_BUTTON, a
+	jr nz, .cancelledGivingFossil
+	ld hl, wFilteredBagItems
+	ld a, [wCurrentMenuItem]
+	ld d, 0
+	ld e, a
+	add hl, de
+	ld a, [hl]
+	ldh [hItemToRemoveID], a
+	cp DOME_FOSSIL
+	jr z, .choseDomeFossil
+	cp HELIX_FOSSIL
+	jr z, .choseHelixFossil
+	ld b, AERODACTYL
+	jr .fossilSelected
+.choseHelixFossil
+	ld b, OMANYTE
+	jr .fossilSelected
+.choseDomeFossil
+	ld b, KABUTO
+.fossilSelected
+	ld [wCeladonLabFossilItem], a
+	ld a, b
+	ld [wCeladonLabFossilMon], a
+	call LoadCeladonLabFossilItemAndMonName
+	ld hl, .ScientistSeesFossilText
+	call PrintText
+	call YesNoChoice
+	ld a, [wCurrentMenuItem]
+	and a
+	jr nz, .cancelledGivingFossil
+	ld hl, .ScientistTakesFossilText
+	call PrintText
+	ld a, [wCeladonLabFossilItem]
+	ldh [hItemToRemoveID], a
+	farcall RemoveItemByID
+	ld hl, .GoForAWalkText
+	call PrintText
+	SetEvents EVENT_GAVE_FOSSIL_TO_CELADON_LAB, EVENT_CELADON_LAB_STILL_REVIVING_FOSSIL
+	ret
+.cancelledGivingFossil
+	ld hl, .ComeAgainText
+	call PrintText
+	ret
+
+.ScientistSeesFossilText:
+	text_far _CeladonLabFossilScientistSeesFossilText
+	text_end
+
+.ScientistTakesFossilText:
+	text_far _CeladonLabFossilScientistTakesFossilText
+	text_end
+
+.GoForAWalkText:
+	text_far _CeladonLabFossilScientistGoForAWalkText
+	text_end
+
+.ComeAgainText:
+	text_far _CeladonLabFossilScientistComeAgainText
+	text_end
+
 PrintFossilsInBag:
 ; Prints each fossil in the player's bag on a separate line in the menu.
 	ld hl, wFilteredBagItems
@@ -123,6 +214,16 @@ LoadFossilItemAndMonName::
 	call GetMonName
 	call CopyToStringBuffer
 	ld a, [wFossilItem]
+	ld [wd11e], a
+	call GetItemName
+	ret
+
+LoadCeladonLabFossilItemAndMonName::
+	ld a, [wCeladonLabFossilMon]
+	ld [wd11e], a
+	call GetMonName
+	call CopyToStringBuffer
+	ld a, [wCeladonLabFossilItem]
 	ld [wd11e], a
 	call GetItemName
 	ret

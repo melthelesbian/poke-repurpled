@@ -19,3 +19,9 @@ _CeladonHotelGirlText::
 	text "My girlfriend is"
 	line "a big PONYTA fan."
 	prompt
+
+_CeladonHotelReceptionistText::
+	text "Sorry, but the"
+	line "upper floors are"
+	cont "only for guests."
+	done

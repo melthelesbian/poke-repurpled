@@ -147,9 +147,12 @@
 	const EVENT_GOT_20_COINS_2
 	const_skip 2
 	const EVENT_1BF ; ???
-	const_skip 31
+	const_skip 28
 	const EVENT_GOT_TEA_SHIPMENT
 	const EVENT_GOT_COIN_CASE
+	const EVENT_GAVE_FOSSIL_TO_CELADON_LAB
+	const EVENT_CELADON_LAB_STILL_REVIVING_FOSSIL
+	const EVENT_CELADON_LAB_HANDING_OVER_FOSSIL_MON
 
 ; Fuchsia City events
 	const_next $238

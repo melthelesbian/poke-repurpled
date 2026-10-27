@@ -313,7 +313,7 @@ INCLUDE "engine/events/hidden_objects/vermilion_gym_trash.asm"
 
 SECTION "Cinnabar Lab Fossils", ROMX
 
-INCLUDE "engine/events/cinnabar_lab.asm"
+INCLUDE "engine/events/fossil_lab.asm"
 
 
 SECTION "Hidden Objects 4", ROMX

@@ -1951,6 +1951,10 @@ wFossilItem:: db
 ; mon that will result from the item
 wFossilMon:: db
 
+; fossil and revived mon being handled at Celadon Lab
+wCeladonLabFossilItem:: db
+wCeladonLabFossilMon:: db
+
 ; trainer classes start at OPP_ID_OFFSET
 wEnemyMonOrTrainerClass:: db
 

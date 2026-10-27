@@ -6,6 +6,7 @@ CeladonHotel_TextPointers:
 	dw_const CeladonHotelGrannyText,    TEXT_CELADONHOTEL_GRANNY
 	dw_const CeladonHotelBeautyText,    TEXT_CELADONHOTEL_BEAUTY
 	dw_const CeladonHotelGirlText,      TEXT_CELADONHOTEL_GIRL
+	dw_const CeladonHotelReceptionistText, TEXT_CELADONHOTEL_RECEPTIONIST
 
 CeladonHotelGrannyText:
 	text_far _CeladonHotelGrannyText
@@ -22,3 +23,7 @@ CeladonHotelGirlText:
 	ld [wWhichTrade], a
 	predef DoInGameTradeDialogue
 	jp TextScriptEnd
+
+CeladonHotelReceptionistText:
+	text_far _CeladonHotelReceptionistText
+	text_end

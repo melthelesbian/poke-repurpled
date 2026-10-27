@@ -70,6 +70,7 @@ HiddenObjectMaps:
 	db ROUTE_10
 	db INDIGO_PLATEAU_LOBBY
 	db CINNABAR_LAB_FOSSIL_ROOM
+	db CELADON_LAB
 	db BIKE_SHOP
 	db ROUTE_11
 	db ROUTE_12
@@ -160,6 +161,7 @@ HiddenObjectPointers:
 	dw Route10HiddenObjects
 	dw IndigoPlateauLobbyHiddenObjects
 	dw CinnabarLab4HiddenObjects
+	dw CeladonLabHiddenObjects
 	dw BikeShopHiddenObjects
 	dw Route11HiddenObjects
 	dw Route12HiddenObjects
@@ -613,6 +615,11 @@ IndigoPlateauLobbyHiddenObjects:
 CinnabarLab4HiddenObjects:
 	hidden_object  0,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
 	hidden_object  2,  4, SPRITE_FACING_UP, OpenPokemonCenterPC
+	db -1 ; end
+
+CeladonLabHiddenObjects:
+	hidden_object  0,  2, SPRITE_FACING_UP, OpenPokemonCenterPC
+	hidden_object  4,  2, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
 BikeShopHiddenObjects:

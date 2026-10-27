@@ -86,6 +86,7 @@ InternalMapEntries:
 	internal_map CHAMPIONS_ROOM,                 0,  2, PokemonLeagueName
 	internal_map UNDERGROUND_PATH_WEST_EAST,    10,  5, UndergroundPathName
 	internal_map CELADON_HOTEL,                  7,  5, CeladonCityName
+	internal_map CELADON_LAB,                    7,  5, CeladonCityName
 	internal_map LAVENDER_POKECENTER,           14,  5, LavenderTownName
 	internal_map POKEMON_TOWER_7F,              15,  5, PokemonTowerName
 	internal_map LAVENDER_CUBONE_HOUSE,         14,  5, LavenderTownName

@@ -2,6 +2,7 @@ CeladonCity_Script:
 	call EnableAutoTextBoxDrawing
 	ResetEvents EVENT_1B8, EVENT_1BF
 	ResetEvent EVENT_67F
+	ResetEvent EVENT_CELADON_LAB_STILL_REVIVING_FOSSIL
 	ret
 
 CeladonCity_TextPointers:
@@ -24,6 +25,7 @@ CeladonCity_TextPointers:
 	dw_const CeladonCityTrainerTips2Text,      TEXT_CELADONCITY_TRAINER_TIPS2
 	dw_const CeladonCityPrizeExchangeSignText, TEXT_CELADONCITY_PRIZEEXCHANGE_SIGN
 	dw_const CeladonCityGameCornerSignText,    TEXT_CELADONCITY_GAMECORNER_SIGN
+	dw_const CeladonCityLabSignText,           TEXT_CELADONCITY_LAB_SIGN
 
 CeladonCityLittleGirlText:
 	text_far _CeladonCityLittleGirlText
@@ -130,4 +132,8 @@ CeladonCityPrizeExchangeSignText:
 
 CeladonCityGameCornerSignText:
 	text_far _CeladonCityGameCornerSignText
+	text_end
+
+CeladonCityLabSignText:
+	text_far _CeladonCityLabSignText
 	text_end

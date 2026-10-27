@@ -115,14 +115,14 @@ MapHeaderBanks::
 	db BANK(MtMoonSquareGiftShop_h) ; MT_MOON_SQUARE_GIFT_SHOP (UNUSED_MAP_6F)
 	db BANK(SurfHouse_h) ; SURF_HOUSE
 	db BANK(LancesRoom_h)
-	db $1D ; UNUSED_MAP_72
+	db BANK(UndergroundPathWestEast_h) ; UNDERGROUND_PATH_WEST_EAST
 	db $1D ; UNUSED_MAP_73
 	db $1D ; UNUSED_MAP_74
 	db $1D ; UNUSED_MAP_75
 	db BANK(HallOfFame_h)
 	db BANK(UndergroundPathNorthSouth_h)
 	db BANK(ChampionsRoom_h)
-	db BANK(UndergroundPathWestEast_h)
+	db BANK(CeladonLab_h) ; CELADON_LAB
 	db BANK(CeladonMart1F_h)
 	db BANK(CeladonMart2F_h)
 	db BANK(CeladonMart3F_h)
