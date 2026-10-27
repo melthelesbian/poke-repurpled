@@ -78,8 +78,7 @@ HiddenObjectMaps:
 	db POKEMON_MANSION_B1F
 	db SILPH_CO_11F
 	db ROUTE_17
-	db UNDERGROUND_PATH_NORTH_SOUTH
-	db UNDERGROUND_PATH_WEST_EAST
+	db UNDERGROUND_CROSSROADS
 	db CELADON_CITY
 	db SEAFOAM_ISLANDS_B3F
 	db VERMILION_CITY
@@ -169,8 +168,7 @@ HiddenObjectPointers:
 	dw Mansion4HiddenObjects
 	dw SilphCo11FHiddenObjects
 	dw Route17HiddenObjects
-	dw UndergroundPathNsHiddenObjects
-	dw UndergroundPathWeHiddenObjects
+	dw UndergroundCrossroadsHiddenObjects
 	dw CeladonCityHiddenObjects
 	dw SeafoamIslands4HiddenObjects
 	dw VermilionCityHiddenObjects
@@ -651,14 +649,11 @@ Route17HiddenObjects:
 	hidden_object  8, 121, MAX_ELIXIR, HiddenItems
 	db -1 ; end
 
-UndergroundPathNsHiddenObjects:
-	hidden_object  3,  4, FULL_RESTORE, HiddenItems
-	hidden_object  4, 34, CALCIUM, HiddenItems
-	db -1 ; end
-
-UndergroundPathWeHiddenObjects:
-	hidden_object 12,  2, NUGGET, HiddenItems
-	hidden_object 21,  5, ELIXIR, HiddenItems
+UndergroundCrossroadsHiddenObjects:
+	hidden_object 17,  4, FULL_RESTORE, HiddenItems
+	hidden_object 18, 32, CALCIUM, HiddenItems
+	hidden_object 10, 18, NUGGET, HiddenItems
+	hidden_object 26, 21, ELIXIR, HiddenItems
 	db -1 ; end
 
 CeladonCityHiddenObjects:
