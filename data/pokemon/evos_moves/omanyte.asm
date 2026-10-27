@@ -1,6 +1,6 @@
 OmanyteEvosMoves:
 ; Evolutions
-	db EVOLVE_LEVEL, 40, OMASTAR
+	db EVOLVE_LEVEL, 25, OMASTAR
 	db 0
 ; Learnset
 	db 1, TACKLE
