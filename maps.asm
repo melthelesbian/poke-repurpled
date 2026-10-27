@@ -1279,3 +1279,8 @@ INCLUDE "data/maps/headers/MoveManiacHouse.asm"
 INCLUDE "data/maps/objects/MoveManiacHouse.asm"
 INCLUDE "scripts/MoveManiacHouse.asm"
 MoveManiacHouse_Blocks: INCBIN "maps/MoveManiacHouse.blk"
+
+INCLUDE "data/maps/headers/Route7House.asm"
+INCLUDE "scripts/Route7House.asm"
+INCLUDE "data/maps/objects/Route7House.asm"
+Route7House_Blocks: INCBIN "maps/Route7House.blk"

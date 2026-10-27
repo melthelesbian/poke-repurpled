@@ -9,7 +9,7 @@ TradeMons:
 	db NIDORINO,   NIDORINA,   TRADE_DIALOGSET_EVOLUTION, "NINA@@@@@@@" ; Route 11
 	db CLEFAIRY,   CHANSEY,    TRADE_DIALOGSET_HAPPY,     "HOPE@@@@@@@" ; Route 25
 	db MR_MIME,    KADABRA,    TRADE_DIALOGSET_CASUAL,    "ALANA@@@@@@" ; Route 18
-	db JIGGLYPUFF, GLOOM,	   TRADE_DIALOGSET_CASUAL,    "DRIPPY@@@@@" ; Route 15
+	db JIGGLYPUFF, GLOOM,	   TRADE_DIALOGSET_CASUAL,    "DRIPPY@@@@@" ; Route 7 House
 	db PONYTA,     SEEL,       TRADE_DIALOGSET_HAPPY,     "SAILOR@@@@@" ; Celadon Hotel
 	db SPEAROW,    FARFETCHD,  TRADE_DIALOGSET_HAPPY,     "DUX@@@@@@@@" ; Vermilion City
 	db SLOWPOKE,   MAGMAR,     TRADE_DIALOGSET_CASUAL,    "MAGMARC@@@@" ; Cerulean City

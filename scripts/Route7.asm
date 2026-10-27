@@ -4,7 +4,12 @@ Route7_Script:
 Route7_TextPointers:
 	def_text_pointers
 	dw_const Route7UndergroundPathSignText, TEXT_ROUTE7_UNDERGROUND_PATH_SIGN
+	dw_const Route7HouseSignText, TEXT_ROUTE7_HOUSE_SIGN
 
 Route7UndergroundPathSignText:
 	text_far _Route7UndergroundPathSignText
+	text_end
+
+Route7HouseSignText:
+	text_far _Route7HouseSignText
 	text_end

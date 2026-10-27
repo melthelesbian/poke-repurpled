@@ -4,7 +4,7 @@ Route15House_Script:
 Route15House_TextPointers:
 	def_text_pointers
 	dw_const Route15HouseHousesitterText, TEXT_ROUTE15HOUSE_HOUSESITTER
-	dw_const Route15HouseTradeGirlText, TEXT_ROUTE15HOUSE_TRADE_GIRL
+	dw_const Route15HouseVisitorText, TEXT_ROUTE15HOUSE_VISITOR
 	dw_const Route15HouseCollectorText, TEXT_ROUTE15HOUSE_COLLECTOR
 	dw_const Route15HouseFriendText, TEXT_ROUTE15HOUSE_FRIEND
 	dw_const Route15HouseClefableText, TEXT_ROUTE15HOUSE_CLEFABLE
@@ -21,12 +21,10 @@ Route15HouseHousesitterText:
 	cont "she's away."
 	done
 
-Route15HouseTradeGirlText:
-	text_asm
-	ld a, TRADE_FOR_DRIPPY
-	ld [wWhichTrade], a
-	predef DoInGameTradeDialogue
-	jp TextScriptEnd
+Route15HouseVisitorText:
+	text "I'm just happy to"
+	line "be included!"
+	done
 
 Route15HouseCollectorText:
 	text_asm

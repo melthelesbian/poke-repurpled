@@ -76,7 +76,7 @@ MapHeaderPointers::
 	dw Daycare_h
 	dw Route6Gate_h
 	dw UndergroundPathRoute6_h
-	dw UndergroundPathRoute6_h ; UNDERGROUND_PATH_ROUTE_6_COPY
+	dw Route7House_h ; ROUTE_7_HOUSE
 	dw Route7Gate_h
 	dw UndergroundPathRoute7_h
 	dw UndergroundPathRoute7Copy_h
