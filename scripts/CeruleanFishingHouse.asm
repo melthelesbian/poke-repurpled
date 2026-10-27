@@ -7,9 +7,9 @@ CeruleanFishingHouse_Script:
 
 CeruleanFishingHouse_TextPointers:
 	def_text_pointers
-	dw_const CeruleanFishingHouseFisherText, TEXT_CERULEANFISHINGHOUSE_FISHING_GURU
+	dw_const CeruleanFishingHouseFishingGuruText, TEXT_CERULEANFISHINGHOUSE_FISHING_GURU
 
-CeruleanFishingHouseFisherText:
+CeruleanFishingHouseFishingGuruText:
 	text_asm
 	ld a, [wStatusFlags1]
 	bit BIT_GOT_FISHING_ROD, a

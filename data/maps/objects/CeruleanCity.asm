@@ -10,7 +10,7 @@
 	const_export CERULEANCITY_COOLTRAINER_F2
 	const_export CERULEANCITY_SUPER_NERD3
 	const_export CERULEANCITY_GUARD2
-	const_export CERULEANCITY_GRANNY
+	const_export CERULEANCITY_COOLTRAINER_F3
 
 CeruleanCity_Object:
 	db $f ; border block

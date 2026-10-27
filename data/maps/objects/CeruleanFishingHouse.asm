@@ -1,5 +1,5 @@
 	object_const_def
-	const_export CERULEANFISHINGHOUSE_FISHER
+	const_export CERULEANFISHINGHOUSE_FISHING_GURU
 
 CeruleanFishingHouse_Object:
 	db $c ; border block
