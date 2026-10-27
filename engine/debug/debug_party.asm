@@ -130,6 +130,7 @@ DebugSetPokedexEntries:
 
 DebugItemsList:
 	db BICYCLE, 1
+	db REPEL, 99
 	db FULL_RESTORE, 99
 	db PANACEA, 99
 	db ESCAPE_ROPE, 99

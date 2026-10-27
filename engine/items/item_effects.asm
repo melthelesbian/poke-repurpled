@@ -1556,6 +1556,9 @@ ItemUseRepel:
 	ld a, [wIsInBattle]
 	and a
 	jp nz, ItemUseNotTime
+	ld a, [wRepelRemainingSteps]
+	and a
+	jp nz, ItemUseAlreadyActive
 	ld a, b
 	ld [wRepelRemainingSteps], a
 	jp PrintItemUseTextAndRemoveItem
@@ -2149,6 +2152,14 @@ ItemUseNoEffect:
 ItemUseNotTime:
 	ld hl, ItemUseNotTimeText
 	jr ItemUseFailed
+
+ItemUseAlreadyActive:
+	ld hl, .alreadyActiveText
+	jr ItemUseFailed
+.alreadyActiveText:
+	text "It's already in"
+	line "use."
+	prompt
 
 ItemUseNotYoursToUse:
 	ld hl, ItemUseNotYoursToUseText
