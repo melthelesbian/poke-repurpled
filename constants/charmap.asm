@@ -82,9 +82,6 @@
 	; needed for StatusScreen (see engine/pokemon/status_screen.asm)
 	charmap "<BOLD_P>",  $72 ; gfx/font/P.1bpp
 
-	; needed for LoadTownMap_Fly (see engine/items/town_map.asm)
-	charmap "▲",         $ed ; gfx/town_map/up_arrow.1bpp
-
 	; needed for PrintAlphabet (see engine/menus/naming_screen.asm)
 	charmap "<ED>",      $f0 ; gfx/font/ED.1bpp
 
@@ -161,8 +158,8 @@
 
 	charmap "<TM>",      $c9
 	charmap "<HM>",      $ca
-	                    ;$cb
-	                    ;$cc
+	charmap "◀",		 $cb
+	charmap "▲", 		 $cc
 	charmap "<ANGRY>",   $cd
 	charmap "<SPIRAL>",  $ce
 	charmap "<CLOCK>",   $cf

@@ -1,7 +1,10 @@
 _Route7UndergroundPathSignText::
 	text "UNDERGROUND PATH"
-	line "CELADON CITY -"
-	cont "LAVENDER TOWN"
+	line "DESTINATIONS:"
+
+	para "▲ CERULEAN CITY"
+	line "▶ LAVENDER TOWN"
+	cont "▼ VERMILION CITY"
 	done
 
 _Route7HouseSignText::

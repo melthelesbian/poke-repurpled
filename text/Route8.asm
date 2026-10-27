@@ -166,8 +166,11 @@ _Route8SweetheartAfterBattleText::
 
 _Route8UndergroundSignText::
 	text "UNDERGROUND PATH"
-	line "CELADON CITY -"
-	cont "LAVENDER TOWN"
+	line "DESTINATIONS:"
+
+	para "▲ CERULEAN CITY"
+	line "◀ CELADON CITY"
+	cont "▼ VERMILION CITY"
 	done
 
 _Route8MeditationCaveSignText::

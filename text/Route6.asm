@@ -107,6 +107,9 @@ _Route6SweetheartAfterBattleText::
 
 _Route6UndergroundPathSignText::
 	text "UNDERGROUND PATH"
-	line "CERULEAN CITY -"
-	cont "VERMILION CITY"
+	line "DESTINATIONS:"
+
+	para "◀ CELADON CITY"
+	line "▲ CERULEAN CITY"
+	cont "▶ LAVENDER TOWN"
 	done
