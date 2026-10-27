@@ -530,7 +530,7 @@ TextCommand_SOUND::
 	cp TX_SOUND_CRY_DEWGONG
 	jr z, .pokemonCry
 	ld a, [hl]
-	call PlaySound
+	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
 	pop hl
 	pop bc
