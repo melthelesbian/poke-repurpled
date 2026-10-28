@@ -349,9 +349,6 @@ StartMenu_Item::
 	xor a
 	ld [wMenuItemToSwap], a
 	ld a, [wCurItem]
-	cp BICYCLE
-	jp z, .useOrTossItem
-.notBicycle1
 	ld a, USE_TOSS_MENU_TEMPLATE
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
@@ -379,16 +376,6 @@ StartMenu_Item::
 	ld [wd11e], a
 	call GetItemName
 	call CopyToStringBuffer
-	ld a, [wCurItem]
-	cp BICYCLE
-	jr nz, .notBicycle2
-	ld a, [wStatusFlags6]
-	bit BIT_ALWAYS_ON_BIKE, a
-	jr z, .useItem_closeMenu
-	ld hl, CannotGetOffHereText
-	call PrintText
-	jp ItemMenuLoop
-.notBicycle2
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .checkInfoOrToss
@@ -466,10 +453,6 @@ StartMenu_Item::
 
 CannotUseItemsHereText:
 	text_far _CannotUseItemsHereText
-	text_end
-
-CannotGetOffHereText:
-	text_far _CannotGetOffHereText
 	text_end
 
 INCLUDE "data/items/use_party.asm"

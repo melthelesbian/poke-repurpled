@@ -670,6 +670,9 @@ ItemUseBicycle:
 	dec a ; is player already bicycling?
 	jr nz, .tryToGetOnBike
 .getOffBike
+	ld a, [wStatusFlags6]
+	bit BIT_ALWAYS_ON_BIKE, a
+	jr nz, .cannotGetOffHere
 	call ItemUseReloadOverworldData
 	xor a
 	ld [wWalkBikeSurfState], a ; change player state to walking
@@ -686,8 +689,15 @@ ItemUseBicycle:
 	ld [wWalkBikeSurfState], a ; change player state to bicycling
 	ld hl, GotOnBicycleText
 	call PlayDefaultMusic ; play bike riding music
+	jr .printText
+.cannotGetOffHere
+	ld hl, CannotGetOffHereText
 .printText
 	jp PrintText
+
+CannotGetOffHereText:
+	text_far _CannotGetOffHereText
+	text_end
 
 ; indirectly used by SURF in StartMenu_Pokemon.surf
 ItemUseSurfboard:
