@@ -381,5 +381,5 @@ INCLUDE "engine/items/tm_prices.asm"
 SECTION "Field Move Stuff", ROMX
 
 INCLUDE "engine/overworld/field_moves.asm"
+INCLUDE "engine/overworld/field_shortcuts.asm"
 INCLUDE "engine/overworld/auto_repel.asm"
-INCLUDE "engine/overworld/bike_shortcut.asm"

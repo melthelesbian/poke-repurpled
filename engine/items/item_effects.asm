@@ -2699,7 +2699,7 @@ SendNewMonToBox:
 ; checks if the tile in front of the player is a shore or water tile
 ; used for surfing and fishing
 ; unsets carry if it is, sets carry if not
-IsNextTileShoreOrWater:
+IsNextTileShoreOrWater::
 	ld a, [wCurMapTileset]
 	ld hl, WaterTilesets
 	ld de, 1

@@ -11,15 +11,15 @@ TryRideBike::
 	ld b, BICYCLE
 	call IsItemInBag
 	jr nz, .hasBike
-	call EnableBikeShortcutText
+	call EnableShortcutText
 	ld hl, TextNoBike ; if no bike
 	call PrintText
 	jr .cleanUp
 .hasBike
-	call EnableBikeShortcutText
+	call EnableShortcutText
 	call UseItem
 .cleanUp
-	call CloseBikeShortcutText
+	call CloseShortcutText
 	ret
 
 TextNoBike:
@@ -27,14 +27,34 @@ TextNoBike:
 	line "havea BICYCLE."
 	done
 
-EnableBikeShortcutText: ; Gets everything setup to let you display text properly
+TryFishingRod::
+    ld a, FISHING_ROD
+    ld [wCurItem], a
+	ld [wPseudoItemID], a
+	ld [wd11e], a ; store item ID for GetItemName
+	call GetItemName
+	call CopyToStringBuffer ; copy name to wStringBuffer
+.tryForRod
+	ld b, FISHING_ROD
+	call IsItemInBag
+	jr nz, .hasRod
+	ret
+.hasRod
+	call EnableShortcutText
+	call UseItem
+	call CloseShortcutText
+    ld a, 1
+    and a ; non-zero
+	ret
+
+EnableShortcutText: ; Gets everything setup to let you display text properly
 	call DisableAutoTextBoxDrawing
 	ld a, 1 ; not 0
 	ld [hSpriteIndexOrTextID], a
 	farcall DisplayTextIDInit
 	jp EnableAutoTextBoxDrawing
 
-CloseBikeShortcutText: ; Closes the text out properly to prevent glitches
+CloseShortcutText: ; Closes the text out properly to prevent glitches
 	ldh a, [hLoadedROMBank]
 	push af
 	jp CloseTextDisplay

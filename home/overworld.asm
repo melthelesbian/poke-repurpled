@@ -74,7 +74,14 @@ OverworldLoopLessDelay::
 .checkIfSelectIsPressed
 	bit BIT_SELECT, a
 	jr z, .selectButtonNotPressed
+	predef GetTileAndCoordsInFrontOfPlayer
+	farcall IsNextTileShoreOrWater
+	jr c, .tryBike
+	farcall TryFishingRod
+	jp nz, .checkForOpponent
+.tryBike
 	farcall TryRideBike
+	jp .checkForOpponent
 .selectButtonNotPressed
 	ldh a, [hJoyPressed]
 	bit BIT_START, a
