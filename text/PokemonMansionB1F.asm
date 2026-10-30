@@ -1,3 +1,7 @@
+_PokemonMansionB1FMoltresBattleText::
+	text "Gyaoo!@"
+	text_end
+
 _PokemonMansionB1FBurglarBattleText::
 	text "Uh-oh. Where am"
 	line "I now?"

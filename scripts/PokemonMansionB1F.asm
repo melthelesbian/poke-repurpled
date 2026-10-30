@@ -69,6 +69,7 @@ PokemonMansionB1F_TextPointers:
 	dw_const PickUpItemText,                 TEXT_POKEMONMANSIONB1F_TM_SOLARBEAM
 	dw_const PokemonMansionB1FDiaryText,     TEXT_POKEMONMANSIONB1F_DIARY
 	dw_const PickUpItemText,                 TEXT_POKEMONMANSIONB1F_TM_ICE_BEAM
+	dw_const PokemonMansionB1FMoltresText,  TEXT_POKEMONMANSIONB1F_MOLTRES
 	dw_const PokemonMansion2FSwitchText,     TEXT_POKEMONMANSIONB1F_SWITCH ; This switch uses the text script from the 2F.
 
 Mansion4TrainerHeaders:
@@ -77,7 +78,24 @@ Mansion4TrainerHeader0:
 	trainer EVENT_BEAT_MANSION_4_TRAINER_0, 0, PokemonMansionB1FBurglarBattleText, PokemonMansionB1FBurglarEndBattleText, PokemonMansionB1FBurglarAfterBattleText
 Mansion4TrainerHeader1:
 	trainer EVENT_BEAT_MANSION_4_TRAINER_1, 3, PokemonMansionB1FScientistBattleText, PokemonMansionB1FScientistEndBattleText, PokemonMansionB1FScientistAfterBattleText
+	def_trainers EVENT_BEAT_MOLTRES % 8
+MoltresTrainerHeader:
+	trainer EVENT_BEAT_MOLTRES, 0, PokemonMansionB1FMoltresBattleText, PokemonMansionB1FMoltresBattleText, PokemonMansionB1FMoltresBattleText
 	db -1 ; end
+
+PokemonMansionB1FMoltresText:
+	text_asm
+	ld hl, MoltresTrainerHeader
+	call TalkToTrainer
+	jp TextScriptEnd
+
+PokemonMansionB1FMoltresBattleText:
+	text_far _PokemonMansionB1FMoltresBattleText
+	text_asm
+	ld a, MOLTRES
+	call PlayCry
+	call WaitForSoundToFinish
+	jp TextScriptEnd
 
 PokemonMansionB1FBurglarText:
 	text_asm

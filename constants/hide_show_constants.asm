@@ -102,7 +102,6 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_3            ; 58 X
 	const HS_POWER_PLANT_ITEM_4            ; 59 X
 	const HS_POWER_PLANT_ITEM_5            ; 5A X
-	const HS_MOLTRES                       ; 5B X
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 5C X
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 5D X
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 5E X
@@ -205,6 +204,7 @@ DEF SHOW EQU $15
 	const HS_POKEMON_MANSION_B1F_ITEM_3    ; C0 X
 	const HS_POKEMON_MANSION_B1F_ITEM_4    ; C1 X
 	const HS_POKEMON_MANSION_B1F_ITEM_5    ; C2 X
+	const HS_MOLTRES
 	const HS_SAFARI_ZONE_EAST_ITEM_1       ; C3 X
 	const HS_SAFARI_ZONE_EAST_ITEM_2       ; C4 X
 	const HS_SAFARI_ZONE_EAST_ITEM_3       ; C5 X
