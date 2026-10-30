@@ -1835,6 +1835,7 @@ wOaksLabCurScript:: db
 wPalletTownCurScript:: db
 wBluesHouseCurScript:: db
 wViridianCityCurScript:: db
+wViridianSchoolHouseCurScript:: db
 wPewterCityCurScript:: db
 wRoute3CurScript:: db
 wRoute4CurScript:: db

@@ -1,5 +1,8 @@
 ViridianCity_Script:
 	call EnableAutoTextBoxDrawing
+	ResetEvent EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_0
+	ResetEvent EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_1
+	ResetEvent EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_2
 	ld hl, ViridianCity_ScriptPointers
 	ld a, [wViridianCityCurScript]
 	jp CallFunctionInTable
@@ -142,6 +145,7 @@ ViridianCity_TextPointers:
 	dw_const ViridianCityGymSignText,                        TEXT_VIRIDIANCITY_GYM_SIGN
 	dw_const ViridianCityGymLockedText,                      TEXT_VIRIDIANCITY_GYM_LOCKED
 	dw_const ViridianCityOldManYouNeedToWeakenTheTargetText, TEXT_VIRIDIANCITY_OLD_MAN_YOU_NEED_TO_WEAKEN_THE_TARGET
+	dw_const ViridianCitySchoolSignText,                     TEXT_VIRIDIANCITY_SCHOOL_SIGN
 
 ViridianCityYoungster1Text:
 	text_far _ViridianCityYoungster1Text
@@ -322,6 +326,10 @@ ViridianCityTrainerTips2Text:
 
 ViridianCityGymSignText:
 	text_far _ViridianCityGymSignText
+	text_end
+
+ViridianCitySchoolSignText:
+	text_far _ViridianCitySchoolSignText
 	text_end
 
 ViridianCityGymLockedText:

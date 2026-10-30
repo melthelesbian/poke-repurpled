@@ -11,8 +11,8 @@ TrainerPicAndMoneyPointers::
 	pic_money BugCatcherPic,   10
 	pic_money LassPic,         15
 	pic_money SailorPic,       30
-	pic_money JrTrainerMPic,   20
-	pic_money JrTrainerFPic,   20
+	pic_money JrTrainerMPic,   25
+	pic_money JrTrainerFPic,   25
 	pic_money PokemaniacPic,   50
 	pic_money SuperNerdPic,    25
 	pic_money HikerPic,        35

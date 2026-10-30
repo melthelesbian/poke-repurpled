@@ -1,10 +1,90 @@
 ViridianSchoolHouse_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, ViridianSchoolHouseTrainerHeaders
+	ld de, ViridianSchoolHouse_ScriptPointers
+	ld a, [wViridianSchoolHouseCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wViridianSchoolHouseCurScript], a
+	ret
+
+ViridianSchoolHouse_ScriptPointers:
+	def_script_pointers
+	dw_const CheckFightingMapTrainers,              SCRIPT_VIRIDIANSCHOOLHOUSE_DEFAULT
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_VIRIDIANSCHOOLHOUSE_START_BATTLE
+	dw_const EndTrainerBattle,                      SCRIPT_VIRIDIANSCHOOLHOUSE_END_BATTLE
 
 ViridianSchoolHouse_TextPointers:
 	def_text_pointers
 	dw_const ViridianSchoolHouseBrunetteGirlText, TEXT_VIRIDIANSCHOOLHOUSE_BRUNETTE_GIRL
 	dw_const ViridianSchoolHouseCooltrainerFText, TEXT_VIRIDIANSCHOOLHOUSE_COOLTRAINER_F
+	dw_const ViridianSchoolHouseSuperNerdText, TEXT_VIRIDIANSCHOOLHOUSE_SUPER_NERD
+	dw_const ViridianSchoolHouseJrTrainerMText,  TEXT_VIRIDIANSCHOOLHOUSE_JR_TRAINER_M
+	dw_const ViridianSchoolHouseJrTrainerF1Text, TEXT_VIRIDIANSCHOOLHOUSE_JR_TRAINER_F1
+	dw_const ViridianSchoolHouseJrTrainerF2Text, TEXT_VIRIDIANSCHOOLHOUSE_JR_TRAINER_F2
+
+ViridianSchoolHouseTrainerHeaders:
+	def_trainers 4
+ViridianSchoolHouseTrainerHeader0:
+	trainer EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_0, 0, ViridianSchoolHouseJrTrainerMBattleText, ViridianSchoolHouseJrTrainerMEndBattleText, ViridianSchoolHouseJrTrainerMAfterBattleText
+ViridianSchoolHouseTrainerHeader1:
+	trainer EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_1, 0, ViridianSchoolHouseJrTrainerF1BattleText, ViridianSchoolHouseJrTrainerF1EndBattleText, ViridianSchoolHouseJrTrainerF1AfterBattleText
+ViridianSchoolHouseTrainerHeader2:
+	trainer EVENT_BEAT_VIRIDIAN_SCHOOL_TRAINER_2, 0, ViridianSchoolHouseJrTrainerF2BattleText, ViridianSchoolHouseJrTrainerF2EndBattleText, ViridianSchoolHouseJrTrainerF2AfterBattleText
+	db -1 ; end
+
+ViridianSchoolHouseJrTrainerMText:
+	text_asm
+	ld hl, ViridianSchoolHouseTrainerHeader0
+	call TalkToTrainer
+	jp TextScriptEnd
+
+ViridianSchoolHouseJrTrainerF1Text:
+	text_asm
+	ld hl, ViridianSchoolHouseTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+ViridianSchoolHouseJrTrainerF2Text:
+	text_asm
+	ld hl, ViridianSchoolHouseTrainerHeader2
+	call TalkToTrainer
+	jp TextScriptEnd
+
+ViridianSchoolHouseJrTrainerMBattleText:
+	text_far _ViridianSchoolHouseJrTrainerMBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerMEndBattleText:
+	text_far _ViridianSchoolHouseJrTrainerMEndBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerMAfterBattleText:
+	text_far _ViridianSchoolHouseJrTrainerMAfterBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF1BattleText:
+	text_far _ViridianSchoolHouseJrTrainerF1BattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF1EndBattleText:
+	text_far _ViridianSchoolHouseJrTrainerF1EndBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF1AfterBattleText:
+	text_far _ViridianSchoolHouseJrTrainerF1AfterBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF2BattleText:
+	text_far _ViridianSchoolHouseJrTrainerF2BattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF2EndBattleText:
+	text_far _ViridianSchoolHouseJrTrainerF2EndBattleText
+	text_end
+
+ViridianSchoolHouseJrTrainerF2AfterBattleText:
+	text_far _ViridianSchoolHouseJrTrainerF2AfterBattleText
+	text_end
 
 ViridianSchoolHouseBrunetteGirlText:
 	text_far _ViridianSchoolHouseBrunetteGirlText
@@ -12,4 +92,8 @@ ViridianSchoolHouseBrunetteGirlText:
 
 ViridianSchoolHouseCooltrainerFText:
 	text_far _ViridianSchoolHouseCooltrainerFText
+	text_end
+
+ViridianSchoolHouseSuperNerdText:
+	text_far _ViridianSchoolHouseSuperNerdText
 	text_end

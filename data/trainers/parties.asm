@@ -168,6 +168,9 @@ JrTrainerMData:
 ; Route 12
 	db 30, FARFETCHD, SNORLAX, 0
 
+; Viridian School House
+	db 6, EXEGGCUTE, 0
+
 JrTrainerFData:
 ; Cerulean Gym
 	db 19, GOLDEEN, 0
@@ -207,6 +210,10 @@ JrTrainerFData:
 	db 35, SEADRA, SLOWPOKE, DEWGONG, 0
 ; Bug Sanctuary
 	db 22, VENONAT, BEEDRILL, BUTTERFREE, 0
+
+; Viridian School House
+	db 6, PSYDUCK, 0
+	db 6, GROWLITHE, 0
 
 PokemaniacData:
 ; Route 10

@@ -13,7 +13,7 @@ ViridianCity_Object:
 	def_warp_events
 	warp_event 23, 25, VIRIDIAN_POKECENTER, 1
 	warp_event 29, 19, VIRIDIAN_MART, 1
-	warp_event 21, 15, VIRIDIAN_SCHOOL_HOUSE, 1
+	warp_event 22, 17, VIRIDIAN_SCHOOL_HOUSE, 1
 	warp_event 21,  9, VIRIDIAN_NICKNAME_HOUSE, 1
 	warp_event 32,  7, VIRIDIAN_GYM, 1
 
@@ -24,6 +24,7 @@ ViridianCity_Object:
 	bg_event 30, 19, TEXT_VIRIDIANCITY_MART_SIGN
 	bg_event 24, 25, TEXT_VIRIDIANCITY_POKECENTER_SIGN
 	bg_event 27,  7, TEXT_VIRIDIANCITY_GYM_SIGN
+	bg_event 21, 19, TEXT_VIRIDIANCITY_SCHOOL_SIGN
 
 	def_object_events
 	object_event 13, 20, SPRITE_YOUNGSTER, WALK, ANY_DIR, TEXT_VIRIDIANCITY_YOUNGSTER1
