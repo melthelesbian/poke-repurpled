@@ -1290,3 +1290,8 @@ INCLUDE "data/maps/headers/Route7House.asm"
 INCLUDE "scripts/Route7House.asm"
 INCLUDE "data/maps/objects/Route7House.asm"
 Route7House_Blocks: INCBIN "maps/Route7House.blk"
+
+INCLUDE "data/maps/headers/SaffronBattleFacility.asm"
+INCLUDE "scripts/SaffronBattleFacility.asm"
+INCLUDE "data/maps/objects/SaffronBattleFacility.asm"
+SaffronBattleFacility_Blocks: INCBIN "maps/SaffronBattleFacility.blk"

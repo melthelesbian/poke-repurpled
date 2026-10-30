@@ -117,7 +117,7 @@ MapHeaderPointers::
 	dw LancesRoom_h
 	dw UndergroundPathWestEast_h ; UNDERGROUND_PATH_WEST_EAST
 	dw LancesRoom_h ; UNUSED_MAP_73
-	dw LancesRoom_h ; UNUSED_MAP_74
+	dw SaffronBattleFacility_h
 	dw LancesRoom_h ; UNUSED_MAP_75
 	dw HallOfFame_h
 	dw UndergroundPathNorthSouth_h

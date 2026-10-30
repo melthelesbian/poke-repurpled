@@ -137,6 +137,9 @@ LassData:
 ; Bug Sanctuary
 	db 20, PARAS, VENONAT, BUTTERFREE, 0
 
+; Saffron Battle Facility
+	db 30, RAICHU, CLEFABLE, 0
+
 SailorData:
 ; SS Anne Stern
 	db 20, MACHOP, SHELLDER, 0
@@ -270,6 +273,9 @@ HikerData:
 	db 28, RHYHORN, MACHOKE, 0
 	db 27, ONIX, GOLEM, 0
 
+; Saffron Battle Facility
+	db 30, GRAVELER, ONIX, RHYDON, 0
+
 BikerData:
 ; Route 13
 	db 31, KOFFING, GRIMER, MAGMAR, 0
@@ -323,6 +329,9 @@ EngineerData:
 ; Route 11
 	db 21, MAGNEMITE, 0
 	db 18, VOLTORB, MAGNEMITE, MAGNETON, 0
+
+; Saffron Battle Facility
+	db 30, ELECTRODE, MAGNETON, 0
 
 SweetheartData:
 ; Viridian Forest
@@ -438,6 +447,9 @@ BeautyData:
 ; Route 20
 	db 30, SEADRA, DEWGONG, VAPOREON, 0
 
+
+; Saffron Battle Facility
+	db 30, SEAKING, VILEPLUME, NINETALES, 0
 
 PsychicData:
 ; Saffron Gym
@@ -568,6 +580,9 @@ ScientistData:
 	db 38, WEEZING, MAGNETON, ELECTRODE, 0
 ; Mansion B1F
 	db 38, MUK, PORYGON, 0
+
+; Saffron Battle Facility 
+	db 30, MAGNETON, DITTO, PORYGON, 0
 
 GiovanniData:
 ; Rocket Hideout B4F
@@ -774,6 +789,9 @@ ChannelerData:
 	db 34, HYPNO, KADABRA, 0
 	db 38, HYPNO, 0
 	db 33, KADABRA, JYNX, MR_MIME, 0
+
+; Saffron Battle Facility
+	db 30, MR_MIME, HAUNTER, MAROWAK, 0
 
 AgathaData:
 	db $FF, 57, FARFETCHD, 57, SCYTHER, 58, FEAROW, 59, MAROWAK, 59, VILEPLUME, 60, GENGAR, 0

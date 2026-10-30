@@ -1907,6 +1907,7 @@ wSilphCo6FCurScript:: db
 wSilphCo7FCurScript:: db
 wSilphCo8FCurScript:: db
 wSilphCo9FCurScript:: db
+wSaffronBattleFacilityCurScript:: db
 wHallOfFameCurScript:: db
 wChampionsRoomCurScript:: db
 wLoreleisRoomCurScript:: db

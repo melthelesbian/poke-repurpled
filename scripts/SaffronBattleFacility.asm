@@ -1,0 +1,155 @@
+SaffronBattleFacility_Script:
+	call EnableAutoTextBoxDrawing
+	ld hl, SaffronBattleFacilityTrainerHeaders
+	ld de, SaffronBattleFacility_ScriptPointers
+	ld a, [wSaffronBattleFacilityCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wSaffronBattleFacilityCurScript], a
+	ret
+
+SaffronBattleFacility_ScriptPointers:
+	def_script_pointers
+	dw_const SaffronBattleFacilityDefaultScript,    SCRIPT_SAFFRONBATTLEFACILITY_DEFAULT
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_SAFFRONBATTLEFACILITY_START_BATTLE
+	dw_const EndTrainerBattle,                      SCRIPT_SAFFRONBATTLEFACILITY_END_BATTLE
+
+SaffronBattleFacilityDefaultScript:
+	ret
+
+SaffronBattleFacility_TextPointers:
+	def_text_pointers
+	dw_const SaffronBattleFacilityHikerText,        TEXT_SAFFRONBATTLEFACILITY_HIKER
+	dw_const SaffronBattleFacilityChannelerText,    TEXT_SAFFRONBATTLEFACILITY_CHANNELER
+	dw_const SaffronBattleFacilityLassText,         TEXT_SAFFRONBATTLEFACILITY_LASS
+	dw_const SaffronBattleFacilityBeautyText,       TEXT_SAFFRONBATTLEFACILITY_BEAUTY
+	dw_const SaffronBattleFacilityEngineerText,     TEXT_SAFFRONBATTLEFACILITY_ENGINEER
+	dw_const SaffronBattleFacilityScientistText,    TEXT_SAFFRONBATTLEFACILITY_SCIENTIST
+	dw_const SaffronBattleFacilityCookText,         TEXT_SAFFRONBATTLEFACILITY_COOK
+
+SaffronBattleFacilityCookText:
+	text_far _SaffronBattleFacilityCookText
+	text_end
+
+SaffronBattleFacilityTrainerHeaders:
+	def_trainers
+SaffronBattleFacilityTrainerHeader0:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_0, 0, SaffronBattleFacilityHikerBattleText, SaffronBattleFacilityHikerEndBattleText, SaffronBattleFacilityHikerAfterBattleText
+SaffronBattleFacilityTrainerHeader1:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_1, 0, SaffronBattleFacilityChannelerBattleText, SaffronBattleFacilityChannelerEndBattleText, SaffronBattleFacilityChannelerAfterBattleText
+SaffronBattleFacilityTrainerHeader2:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_2, 0, SaffronBattleFacilityLassBattleText, SaffronBattleFacilityLassEndBattleText, SaffronBattleFacilityLassAfterBattleText
+SaffronBattleFacilityTrainerHeader3:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_3, 0, SaffronBattleFacilityBeautyBattleText, SaffronBattleFacilityBeautyEndBattleText, SaffronBattleFacilityBeautyAfterBattleText
+SaffronBattleFacilityTrainerHeader4:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_4, 0, SaffronBattleFacilityEngineerBattleText, SaffronBattleFacilityEngineerEndBattleText, SaffronBattleFacilityEngineerAfterBattleText
+SaffronBattleFacilityTrainerHeader5:
+	trainer EVENT_BEAT_SAFFRON_BATTLE_FACILITY_TRAINER_5, 0, SaffronBattleFacilityScientistBattleText, SaffronBattleFacilityScientistEndBattleText, SaffronBattleFacilityScientistAfterBattleText
+	db -1 ; end
+
+SaffronBattleFacilityHikerText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader0
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityChannelerText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader1
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityLassText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader2
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityBeautyText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader3
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityEngineerText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader4
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityScientistText:
+	text_asm
+	ld hl, SaffronBattleFacilityTrainerHeader5
+	call TalkToTrainer
+	jp TextScriptEnd
+
+SaffronBattleFacilityHikerBattleText:
+	text_far _SaffronBattleFacilityHikerBattleText
+	text_end
+
+SaffronBattleFacilityHikerEndBattleText:
+	text_far _SaffronBattleFacilityHikerEndBattleText
+	text_end
+
+SaffronBattleFacilityHikerAfterBattleText:
+	text_far _SaffronBattleFacilityHikerAfterBattleText
+	text_end
+
+SaffronBattleFacilityChannelerBattleText:
+	text_far _SaffronBattleFacilityChannelerBattleText
+	text_end
+
+SaffronBattleFacilityChannelerEndBattleText:
+	text_far _SaffronBattleFacilityChannelerEndBattleText
+	text_end
+
+SaffronBattleFacilityChannelerAfterBattleText:
+	text_far _SaffronBattleFacilityChannelerAfterBattleText
+	text_end
+
+SaffronBattleFacilityLassBattleText:
+	text_far _SaffronBattleFacilityLassBattleText
+	text_end
+
+SaffronBattleFacilityLassEndBattleText:
+	text_far _SaffronBattleFacilityLassEndBattleText
+	text_end
+
+SaffronBattleFacilityLassAfterBattleText:
+	text_far _SaffronBattleFacilityLassAfterBattleText
+	text_end
+
+SaffronBattleFacilityBeautyBattleText:
+	text_far _SaffronBattleFacilityBeautyBattleText
+	text_end
+
+SaffronBattleFacilityBeautyEndBattleText:
+	text_far _SaffronBattleFacilityBeautyEndBattleText
+	text_end
+
+SaffronBattleFacilityBeautyAfterBattleText:
+	text_far _SaffronBattleFacilityBeautyAfterBattleText
+	text_end
+
+SaffronBattleFacilityEngineerBattleText:
+	text_far _SaffronBattleFacilityEngineerBattleText
+	text_end
+
+SaffronBattleFacilityEngineerEndBattleText:
+	text_far _SaffronBattleFacilityEngineerEndBattleText
+	text_end
+
+SaffronBattleFacilityEngineerAfterBattleText:
+	text_far _SaffronBattleFacilityEngineerAfterBattleText
+	text_end
+
+SaffronBattleFacilityScientistBattleText:
+	text_far _SaffronBattleFacilityScientistBattleText
+	text_end
+
+SaffronBattleFacilityScientistEndBattleText:
+	text_far _SaffronBattleFacilityScientistEndBattleText
+	text_end
+
+SaffronBattleFacilityScientistAfterBattleText:
+	text_far _SaffronBattleFacilityScientistAfterBattleText
+	text_end
