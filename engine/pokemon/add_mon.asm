@@ -191,6 +191,22 @@ _AddPartyMon::
 	xor a
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves
+; Caught mons retain their battle moves, including special encounter moves.
+	ld a, [wMonDataLocation]
+	and a
+	jr nz, .movesReady
+	ld a, [wIsInBattle]
+	cp 1 ; wild battle
+	jr nz, .movesReady
+	pop de
+	push de
+	dec de
+	dec de
+	dec de
+	ld hl, wEnemyMonMoves
+	ld bc, NUM_MOVES
+	call CopyData
+.movesReady
 	pop de
 	ld a, [wPlayerID]  ; set trainer ID to player ID
 	inc de

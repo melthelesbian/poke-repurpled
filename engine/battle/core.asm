@@ -6562,6 +6562,15 @@ LoadEnemyMonData:
 	xor a
 	ld [wLearningMovesFromDayCare], a
 	predef WriteMonMoves ; get moves based on current level
+; Wild Pikachu encountered while surfing always know Surf.
+	ld a, [wEnemyMonSpecies]
+	cp PIKACHU
+	jr nz, .loadMovePPs
+	ld a, [wWalkBikeSurfState]
+	cp 2 ; surfing
+	jr nz, .loadMovePPs
+	ld a, SURF
+	ld [wEnemyMonMoves], a
 .loadMovePPs
 	ld hl, wEnemyMonMoves
 	ld de, wEnemyMonPP - 1
