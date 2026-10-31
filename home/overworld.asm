@@ -2037,7 +2037,15 @@ LoadWalkingPlayerSpriteGraphics::
 	jr LoadPlayerSpriteGraphicsCommon
 
 LoadSurfingPlayerSpriteGraphics::
+	ld a, [wFieldPokemon]
+	cp PIKACHU
+	ld de, SurfingPikachuSprite
+	jr z, .finishLoading
+	cp LAPRAS
+	ld de, LaprasSprite
+	jr z, .finishLoading
 	ld de, SeelSprite
+.finishLoading
 	ld hl, vNPCSprites
 	jr LoadPlayerSpriteGraphicsCommon
 

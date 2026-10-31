@@ -143,9 +143,18 @@ LoadTownMap_Fly::
 	call LoadTownMap
 	call LoadPlayerSpriteGraphics
 	call LoadFontTilePatterns
+	ld a, [wFieldPokemon]
+	cp PIKACHU
+	jr nz, .loadBirdSprite
+	ld de, FlyingPikachuSprite
+	ld b, BANK(FlyingPikachuSprite)
+	jr .continueLoading
+.loadBirdSprite
 	ld de, BirdSprite
+	ld b, BANK(BirdSprite)
+.continueLoading
+	ld c, 12
 	ld hl, vSprites tile BIRD_BASE_TILE
-	lb bc, BANK(BirdSprite), 12
 	call CopyVideoData
 	ld de, TownMapUpArrow
 	ld hl, vChars1 tile $6d

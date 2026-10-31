@@ -45,6 +45,35 @@ EnterMapAnim::
 	jr .done
 .flyAnimation
 	pop hl
+	; new, to handle Pikachu fly
+	ld a, [wFieldPokemon]
+	cp PIKACHU
+	jr nz, .vanillaFlyAnimation
+	call LoadFlyingPikachuSpriteGraphics
+	ld a, SFX_FLY
+	call PlaySound
+	ld hl, wFlyAnimUsingCoordList
+	xor a ; is using coord list
+	ld [hli], a ; wFlyAnimUsingCoordList
+	ld a, 5
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $8 ; wFlyAnimBirdSpriteImageIndex (facing right)
+	ld de, FlyAnimationEnterScreenCoords_Pikachu1
+	call DoFlyAnimation
+	ld hl, wFlyAnimCounter
+	ld a, 5
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $c ; wFlyAnimBirdSpriteImageIndex (facing left)
+	ld de, FlyAnimationEnterScreenCoords_Pikachu2
+	call DoFlyAnimation
+	ld hl, wFlyAnimCounter
+	ld a, 5
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $8 ; wFlyAnimBirdSpriteImageIndex (facing right)
+	ld de, FlyAnimationEnterScreenCoords_Pikachu3
+	call DoFlyAnimation
+	jr .completeLanding
+.vanillaFlyAnimation
 	ld de, BirdSprite
 	ld hl, vNPCSprites
 	lb bc, BANK(BirdSprite), $0c
@@ -60,6 +89,7 @@ EnterMapAnim::
 	ld [hl], $8 ; wFlyAnimBirdSpriteImageIndex (facing right)
 	ld de, FlyAnimationEnterScreenCoords
 	call DoFlyAnimation
+.completeLanding
 	call LoadPlayerSpriteGraphics
 	jr .restoreDefaultMusic
 
@@ -79,6 +109,32 @@ FlyAnimationEnterScreenCoords:
 	db $3B, $50
 	db $3C, $48
 	db $3C, $40
+
+FlyAnimationEnterScreenCoords_Pikachu1: ; new
+; y, x pairs
+;	db $00, $40 ; starting point
+	db $06, $42
+	db $0C, $44
+	db $11, $46
+	db $16, $47
+	db $1B, $48
+
+FlyAnimationEnterScreenCoords_Pikachu2: ; new
+; y, x pairs
+	db $20, $45
+	db $24, $42
+	db $28, $40
+	db $2C, $3E
+	db $2F, $3C
+
+FlyAnimationEnterScreenCoords_Pikachu3: ; new
+; y, x pairs
+	db $32, $3D
+	db $35, $3E
+	db $38, $3F
+	db $3A, $3F
+	db $3C, $40
+;	db $3C, $40 ; landing point
 
 PlayerSpinWhileMovingDown:
 	ld hl, wPlayerSpinWhileMovingUpOrDownAnimDeltaY
@@ -138,6 +194,48 @@ _LeaveMapAnim::
 	call PlayerSpinInPlace
 	jr .spinWhileMovingUp
 .flyAnimation
+; new, to make custom animation for Flying Pikachu
+	ld a, [wFieldPokemon]
+	cp PIKACHU
+	jr nz, .vanillaFlyAnimation
+	call LoadFlyingPikachuSpriteGraphics
+
+	ld hl, wFlyAnimUsingCoordList
+	ld a, $ff ; is not using coord list (stays in place)
+	ld [hli], a ; wFlyAnimUsingCoordList
+	ld a, 8
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $8 ; wFlyAnimBirdSpriteImageIndex (facing left)
+	call DoFlyAnimation
+	ld a, SFX_FLY
+	call PlaySound
+
+	ld hl, wFlyAnimUsingCoordList
+	xor a ; is using coord list
+	ld [hli], a ; wFlyAnimUsingCoordList
+	ld a, 8
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $c ; wFlyAnimBirdSpriteImageIndex (facing right)
+	ld de, FlyAnimationScreenCoords_Pikachu1
+	call DoFlyAnimation
+
+	ld hl, wFlyAnimCounter
+	ld a, 14
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $8 ; wFlyAnimBirdSpriteImageIndex (facing left)
+	ld de, FlyAnimationScreenCoords_Pikachu2
+	call DoFlyAnimation
+
+	ld hl, wFlyAnimCounter
+	ld a, 9
+	ld [hli], a ; wFlyAnimCounter
+	ld [hl], $c ; wFlyAnimBirdSpriteImageIndex (facing left)
+	ld de, FlyAnimationScreenCoords_Pikachu3
+	call DoFlyAnimation
+
+	call GBFadeOutToWhite
+	jp RestoreFacingDirectionAndYScreenPos
+.vanillaFlyAnimation
 	call LoadBirdSpriteGraphics
 	ld hl, wFlyAnimUsingCoordList
 	ld a, $ff ; is not using coord list (flap in place)
@@ -201,6 +299,50 @@ FlyAnimationScreenCoords2:
 
 	db $F0, $00
 
+FlyAnimationScreenCoords_Pikachu1: ; new
+; y, x pairs
+;	db $3C, $40 ; starting point
+	db $3C, $46
+	db $38, $4A
+	db $34, $4E
+	db $30, $50
+	db $2E, $52
+	db $2C, $54
+	db $2A, $56
+	db $28, $58
+
+FlyAnimationScreenCoords_Pikachu2: ; new
+; y, x pairs
+;	db $28, $58 ; starting point
+	db $27, $56
+	db $26, $54
+	db $25, $52
+	db $24, $50
+	db $23, $4C
+	db $22, $48
+	db $20, $44
+	db $1E, $40
+	db $1D, $3C
+	db $1C, $38
+	db $1B, $36
+	db $1A, $34
+	db $19, $32
+	db $18, $30
+
+FlyAnimationScreenCoords_Pikachu3: ; new
+; y, x pairs
+;	db $18, $30 ; starting point
+	db $17, $32
+	db $15, $34
+	db $12, $36
+	db $0F, $38
+	db $0C, $3A
+	db $08, $3C
+	db $04, $3E
+	db $00, $40
+
+	db $F0, $00 ; ? what's this for?
+
 LeaveMapThroughHoleAnim:
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a ; disable UpdateSprites
@@ -246,6 +388,16 @@ DoFlyAnimation:
 	ld [wFlyAnimCounter], a
 	jr nz, DoFlyAnimation
 	ret
+
+LoadFlyingPikachuSpriteGraphics: ; new
+	ld de, FlyingPikachuSprite
+	ld hl, vNPCSprites
+	lb bc, BANK(FlyingPikachuSprite), 12
+	call CopyVideoData
+	ld de, FlyingPikachuSprite tile 12 ; moving animation sprite
+	ld hl, vNPCSprites2
+	lb bc, BANK(FlyingPikachuSprite), 12
+	jp CopyVideoData
 
 LoadBirdSpriteGraphics:
 	ld de, BirdSprite

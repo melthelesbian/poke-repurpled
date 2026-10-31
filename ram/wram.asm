@@ -1945,6 +1945,8 @@ wObtainedHiddenCoinsFlags:: flag_array MAX_HIDDEN_COINS
 ; $01 = biking
 ; $02 = surfing
 wWalkBikeSurfState:: db
+; pokemon that was used for the last field move
+wFieldPokemon:: db
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 

@@ -62,6 +62,10 @@
 	const SPRITE_BRUNO                   ; $3a
 	const SPRITE_LORELEI                 ; $3b
 	const SPRITE_SEEL                    ; $3c
+	const SPRITE_LAPRAS
+	const SPRITE_PIKACHU
+	const SPRITE_SURFING_PIKACHU
+	const SPRITE_FLYING_PIKACHU
 	const SPRITE_FAIRY_GIRL              ; [TODO) Shift Values
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $3d

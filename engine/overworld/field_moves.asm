@@ -186,7 +186,7 @@ IsCutTile:
 
 HasPartyMove::
 ; Return z (optional: in wWhichTrade) if a PartyMon has move d.
-; Updates wWhichPokemon.
+; Updates wWhichPokemon and wFieldPokemon.
 
 	push bc
 	push de
@@ -223,7 +223,14 @@ HasPartyMove::
 .yes
 	ld a, c
 	ld [wWhichPokemon], a
-	xor a ; probably redundant
+	xor a 
+	ld [wMonDataLocation], a
+	ld a, [wWhichPokemon]
+	ld e, a
+	farcall GetMonSpecies
+	ld a, [wCurPartySpecies]
+	ld [wFieldPokemon], a
+	xor a
 	ld [wWhichTrade], a
 	jr .done
 .no

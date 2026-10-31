@@ -113,6 +113,8 @@ StartMenu_Pokemon::
 	jp StartMenu_Pokemon
 .choseOutOfBattleMove
 	push hl
+	ld a, [wCurPartySpecies]
+	ld [wFieldPokemon], a
 	ld a, [wWhichPokemon]
 	ld hl, wPartyMonNicks
 	call GetPartyMonName

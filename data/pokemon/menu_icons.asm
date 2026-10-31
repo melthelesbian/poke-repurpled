@@ -40,7 +40,7 @@ MonPartyData:
 	nybble ICON_BUG       ; Weedle
 	nybble ICON_BUG       ; Kakuna
 	nybble ICON_BUG       ; Beedrill
-	nybble ICON_FAIRY     ; Pikachu
+	nybble ICON_PIKACHU   ; Pikachu
 	nybble ICON_FAIRY     ; Raichu
 	nybble ICON_QUADRUPED ; Vulpix
 	nybble ICON_QUADRUPED ; Ninetales
@@ -133,7 +133,7 @@ MonPartyData:
 	nybble ICON_WATER     ; Tentacruel
 	nybble ICON_WATER     ; Krabby
 	nybble ICON_WATER     ; Kingler
-	nybble ICON_WATER     ; Lapras
+	nybble ICON_LAPRAS    ; Lapras
 	nybble ICON_MON       ; Jynx
 	nybble ICON_WATER     ; Seel
 	nybble ICON_WATER     ; Dewgong
