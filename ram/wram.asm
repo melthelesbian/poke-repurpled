@@ -1852,6 +1852,7 @@ wRoute9CurScript:: db
 wRoute10CurScript:: db
 wMtMoon1FCurScript:: db
 wMtMoonB2FCurScript:: db
+wMtMoonSquareCurScript:: db
 wSSAnne1FRoomsCurScript:: db
 wSSAnne2FRoomsCurScript:: db
 wRoute22CurScript:: db
@@ -1889,6 +1890,7 @@ wRocketHideoutB1FCurScript:: db
 wRocketHideoutB2FCurScript:: db
 wRocketHideoutB3FCurScript:: db
 wRocketHideoutB4FCurScript:: db
+wCeladonMansion3FCurScript:: db
 wRoute6GateCurScript:: db
 wRoute8GateCurScript:: db
 wCinnabarIslandCurScript:: db

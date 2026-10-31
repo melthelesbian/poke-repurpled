@@ -1,4 +1,5 @@
 	object_const_def
+	const_export MTMOONSQUARE_LUNA
 
 MtMoonSquare_Object:
 	db $2C ; border block
@@ -11,5 +12,6 @@ MtMoonSquare_Object:
 	bg_event 19, 9, TEXT_MTMOONSQUARE_GIFT_SHOP_SIGN
 
 	def_object_events
+	object_event  7, 11, SPRITE_BRUNETTE_GIRL, WALK, ANY_DIR, TEXT_MTMOONSQUARE_LUNA, OPP_LASS, 21
 
 	def_warps_to MT_MOON_SQUARE

@@ -128,7 +128,9 @@
 ; Celadon City events
 	const_next $180
 	const EVENT_GOT_TM41
-	const_skip 11
+	const_skip 4
+	const EVENT_BEAT_CELADON_MANSION_ROM_HACKER
+	const_skip 6
 	const EVENT_GOT_TM08
 	const EVENT_GOT_TM07
 	const EVENT_GOT_TM09
@@ -460,6 +462,7 @@
 	const EVENT_BEAT_ROUTE_19_TRAINER_7
 	const EVENT_BEAT_ROUTE_19_TRAINER_8
 	const EVENT_BEAT_ROUTE_19_TRAINER_9
+	const EVENT_BEAT_ROUTE_19_SYLVIE
 
 ; Route 20 events
 	const_next $500
@@ -578,6 +581,8 @@
 	const EVENT_BEAT_MT_MOON_3_TRAINER_3
 	const EVENT_GOT_DOME_FOSSIL
 	const EVENT_GOT_HELIX_FOSSIL
+	const_skip
+	const EVENT_BEAT_MT_MOON_SQUARE_LUNA
 
 ; S.S. Anne events
 	const_next $5C0

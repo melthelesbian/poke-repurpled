@@ -150,6 +150,28 @@ _Route19Swimmer8AfterBattleText::
 	cont "dry on water."
 	done
 
+_Route19SylvieBattleText::
+	text "SYLVIE: Exploring"
+	line "new places with"
+	cont "my #MON is the"
+	cont "best!"
+	done
+
+_Route19SylvieEndBattleText::
+	text "Wow,"
+	line "you're very good!"
+	prompt
+
+_Route19SylvieAfterBattleText::
+	text "SYLVIE: The sea,"
+	line "the sun, a day"
+	cont "with #MON..."
+
+	para "What more could"
+	line "a girl want?"
+	done
+
+
 _Route19SignText::
 	text "SEA ROUTE 19"
 	line "FUCHSIA CITY -"

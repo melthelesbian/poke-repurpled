@@ -25,6 +25,7 @@ Route19_TextPointers:
 	dw_const Route19Swimmer6Text,      TEXT_ROUTE19_SWIMMER6
 	dw_const Route19Swimmer7Text,      TEXT_ROUTE19_SWIMMER7
 	dw_const Route19Swimmer8Text,      TEXT_ROUTE19_SWIMMER8
+	dw_const Route19SylvieText,        TEXT_ROUTE19_SYLVIE
 	dw_const Route19SignText,          TEXT_ROUTE19_SIGN
 	dw_const SurfHouseSignText,        TEXT_SURF_HOUSE_SIGN
 
@@ -50,6 +51,8 @@ Route19TrainerHeader8:
 	trainer EVENT_BEAT_ROUTE_19_TRAINER_8, 4, Route19Swimmer7BattleText, Route19Swimmer7EndBattleText, Route19Swimmer7AfterBattleText
 Route19TrainerHeader9:
 	trainer EVENT_BEAT_ROUTE_19_TRAINER_9, 4, Route19Swimmer8BattleText, Route19Swimmer8EndBattleText, Route19Swimmer8AfterBattleText
+Route19SylvieTrainerHeader:
+	trainer EVENT_BEAT_ROUTE_19_SYLVIE, 0, Route19SylvieBattleText, Route19SylvieEndBattleText, Route19SylvieAfterBattleText
 	db -1 ; end
 
 Route19CooltrainerM1Text:
@@ -230,6 +233,24 @@ Route19Swimmer8EndBattleText:
 
 Route19Swimmer8AfterBattleText:
 	text_far _Route19Swimmer8AfterBattleText
+	text_end
+
+Route19SylvieText:
+	text_asm
+	ld hl, Route19SylvieTrainerHeader
+	call TalkToTrainer
+	jp TextScriptEnd
+
+Route19SylvieBattleText:
+	text_far _Route19SylvieBattleText
+	text_end
+
+Route19SylvieEndBattleText:
+	text_far _Route19SylvieEndBattleText
+	text_end
+
+Route19SylvieAfterBattleText:
+	text_far _Route19SylvieAfterBattleText
 	text_end
 
 Route19SignText:

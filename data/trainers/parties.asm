@@ -140,6 +140,9 @@ LassData:
 ; Saffron Battle Facility
 	db 30, RAICHU, CLEFABLE, 0
 
+; Mt. Moon Square (Luna)
+	db 13, MEOWTH, EEVEE, 0
+
 SailorData:
 ; SS Anne Stern
 	db 20, MACHOP, SHELLDER, 0
@@ -356,6 +359,10 @@ SweetheartData:
 	db 35, STARMIE, NINETALES, 0
 ; Victory Road 3F
 	db 50, JOLTEON, FLAREON, VAPOREON, VILEPLUME, CHANSEY, 0
+; Route 19 (Sylvie)
+	db 37, RAICHU, NINETALES, SANDSLASH, VAPOREON, 0
+; Celadon Mansion ROM hacker (Melody)
+	db $FF, 69, NINETALES, 71, VILEPLUME, 75, STARMIE, 81, DUGTRIO, 89, MEW,  97, FARFETCHD, 0
 
 FisherData:
 ; SS Anne 2F Rooms

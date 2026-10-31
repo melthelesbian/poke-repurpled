@@ -17,12 +17,12 @@ DebugNewGameParty: ; unreferenced except in _DEBUG
 	; "Tsunekazu Ishihara: Exeggutor is my favorite. That's because I was
 	; always using this character while I was debugging the program."
 	; From https://web.archive.org/web/20000607152840/http://pocket.ign.com/news/14973.html
-	db EXEGGUTOR, 90
-	db MEW, 5
-	db JOLTEON, 56
-	db NIDORINA, 16
-	db FARFETCHD, 57
-	db PIKACHU, 5
+	db VILEPLUME, 71
+	db NINETALES, 69
+	db STARMIE, 75
+	db PIKACHU, 81
+	db MEW, 89
+	db FARFETCHD, 97
 	db -1 ; end
 
 PrepareNewGameDebug: ; dummy except in _DEBUG
@@ -41,7 +41,7 @@ IF DEF(_DEBUG)
 
 	call SetDebugNewGameParty
 
-	; Exeggutor gets four HM moves.
+	; VILEPLUME gets four HM moves.
 	ld hl, wPartyMon1Moves
 	ld a, FLY
 	ld [hli], a
@@ -60,27 +60,27 @@ IF DEF(_DEBUG)
 	ld [hli], a
 	ld [hl], a
 
-	; Jolteon gets Thunderbolt.
-	ld hl, wPartyMon3Moves + 3
+	; PIKACHU gets Thunderbolt.
+	ld hl, wPartyMon4Moves + 3
 	ld a, THUNDERBOLT
 	ld [hl], a
-	ld hl, wPartyMon3PP + 3
+	ld hl, wPartyMon4PP + 3
 	ld a, 15
 	ld [hl], a
 
-	; Farfetch'd gets Fly.
-	ld hl, wPartyMon5Moves + 1
-	ld a, FLY
-	ld [hl], a
-	ld hl, wPartyMon5PP + 1
-	ld a, 15
-	ld [hl], a
-
-	; Pikachu gets Surf.
-	ld hl, wPartyMon6Moves + 2
+	; PIKACHU gets Surf.
+	ld hl, wPartyMon4Moves + 2
 	ld a, SURF
 	ld [hl], a
-	ld hl, wPartyMon6PP + 2
+	ld hl, wPartyMon4PP + 2
+	ld a, 15
+	ld [hl], a
+
+	; FARFETCH'd gets Fly.
+	ld hl, wPartyMon6Moves + 1
+	ld a, FLY
+	ld [hl], a
+	ld hl, wPartyMon6PP + 1
 	ld a, 15
 	ld [hl], a
 

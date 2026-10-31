@@ -60,6 +60,32 @@ _CeladonMansion3FRomHackerPostGameText::
 	cont "though."
 	done
 
+_CeladonMansion3FRomHackerBattleText::
+	text "MELODY: You caught"
+	line "all 151 #MON!"
+
+	para "I'm so grateful to"
+	line "you for playing"
+	cont "so much!"
+
+	para "Now you're ready"
+	line "to battle me!"
+	done
+
+_CeladonMansion3FRomHackerEndBattleText::
+	text "Wow!"
+	line "That was a truly"
+	cont "impressive win."
+	prompt
+
+_CeladonMansion3FRomHackerAfterBattleText::
+	text "MELODY: I hope you"
+	line "enjoyed the game!"
+	
+	para "I really enjoyed"
+	line "making it."
+	done
+
 _CeladonMansion3FGameProgramPCText::
 	text "It's the game"
 	line "program! Messing"

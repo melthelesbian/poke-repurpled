@@ -3,6 +3,7 @@ CeladonCity_Script:
 	ResetEvents EVENT_1B8, EVENT_1BF
 	ResetEvent EVENT_67F
 	ResetEvent EVENT_CELADON_LAB_STILL_REVIVING_FOSSIL
+	ResetEvent EVENT_BEAT_CELADON_MANSION_ROM_HACKER
 	ret
 
 CeladonCity_TextPointers:

@@ -1,5 +1,27 @@
 CeladonMansion3F_Script:
-	jp EnableAutoTextBoxDrawing
+	call EnableAutoTextBoxDrawing
+	ld hl, CeladonMansion3FTrainerHeaders
+	ld de, CeladonMansion3F_ScriptPointers
+	ld a, [wCeladonMansion3FCurScript]
+	call ExecuteCurMapScriptInTable
+	ld [wCeladonMansion3FCurScript], a
+	ret
+
+CeladonMansion3F_ScriptPointers:
+	def_script_pointers
+	dw_const CeladonMansion3FDefaultScript,         SCRIPT_CELADONMANSION3F_DEFAULT
+	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_CELADONMANSION3F_START_BATTLE
+	dw_const EndTrainerBattle,                      SCRIPT_CELADONMANSION3F_END_BATTLE
+
+; The ROM hacker only battles when spoken to with a complete Pokedex.
+CeladonMansion3FDefaultScript:
+	ret
+
+CeladonMansion3FTrainerHeaders:
+	def_trainers 5
+CeladonMansion3FRomHackerTrainerHeader:
+	trainer EVENT_BEAT_CELADON_MANSION_ROM_HACKER, 0, CeladonMansion3FRomHackerBattleText, CeladonMansion3FRomHackerEndBattleText, CeladonMansion3FRomHackerAfterBattleText
+	db -1 ; end
 
 CeladonMansion3F_TextPointers:
 	def_text_pointers
@@ -55,17 +77,43 @@ CeladonMansion3FGameDesignerText:
 	jp TextScriptEnd
 
 CeladonMansion3FRomHackerText:
-	text_far _CeladonMansion3FRomHackerText
-	text_promptbutton
 	text_asm
+	ld hl, wPokedexOwned
+	ld b, wPokedexOwnedEnd - wPokedexOwned
+	call CountSetBits
+	ld a, [wNumSetBits]
+	cp NUM_POKEMON
+	jr c, .incomplete_dex
+	ld hl, CeladonMansion3FRomHackerTrainerHeader
+	call TalkToTrainer
+	jp TextScriptEnd
+.incomplete_dex
+	ld hl, .Text
+	call PrintText
 	CheckEvent EVENT_BEAT_CHAMPION_RIVAL
 	jr z, .done
 	ld hl, .PostGameText
 	call PrintText
 .done
 	jp TextScriptEnd
-.PostGameText
+.Text:
+	text_far _CeladonMansion3FRomHackerText
+	text_end
+
+.PostGameText:
 	text_far _CeladonMansion3FRomHackerPostGameText
+	text_end
+
+CeladonMansion3FRomHackerBattleText:
+	text_far _CeladonMansion3FRomHackerBattleText
+	text_end
+
+CeladonMansion3FRomHackerEndBattleText:
+	text_far _CeladonMansion3FRomHackerEndBattleText
+	text_end
+
+CeladonMansion3FRomHackerAfterBattleText:
+	text_far _CeladonMansion3FRomHackerAfterBattleText
 	text_end
 
 CeladonMansion3FGameProgramPCText:
