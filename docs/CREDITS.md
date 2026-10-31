@@ -17,6 +17,7 @@ I couldn't have made this hack without the help of [Luna](https://github.com/Jus
     * [Reporting Dual-Type Move Effectiveness](https://github.com/pret/pokered/wiki/%5BARCHIVED%5D-Bugs-and-Glitches#dual-type-move-effectiveness-may-be-misreported)
     * [Lt. Surge's Gym Trash Bug](https://github.com/pret/pokered/wiki/%5BARCHIVED%5D-Bugs-and-Glitches#lt-surges-gym-trash-cans-do-not-use-the-proper-trash-cans-for-the-locks)
     * [Improve PokéDdex AREA function](https://github.com/pret/pokered/wiki/Improve-the-Pok%C3%A9dex-AREA-functionality)
+    * [Fix "Bicycle clerk causes text to appear instantly"](https://github.com/pret/pokered/wiki/%5BARCHIVED%5D-Bugs-and-Glitches#bicycle-clerk-causes-text-to-appear-instantly)
 * Base Stats in the Pokédex adapted from Vortyne's [PureRGB](https://github.com/Vortyne/pureRGB/) and [Kanto Expansion Pack](https://github.com/ShiraTheMogul/kep-hack)
 * Learnsets in the Pokédex adapted from the implementation by CrZ-Shadows in [Yellow Legacy](https://github.com/cRz-Shadows/Pokemon_Yellow_Legacy/)
 * Exp Bar code adapted from [Shin Pokémon Red](https://github.com/jojobear13/shinpokered), which utilized the original by dannye in [pokered-gen-2-gfx](https://github.com/dannye/pokered-gen-2-gfx)
@@ -58,7 +59,7 @@ All other front and back sprites were from official sources, or tweaked by me.
 
 * Vortyne's [PureRGB](https://github.com/Vortyne/pureRGB/) for the [48x48 Red backsprite](https://github.com/Vortyne/pureRGB/blob/master/gfx/player/redb_big.png)
 * dannye's [pokered-gen-2-gfx](https://github.com/dannye/pokered-gen-2-gfx) for the [48x48 old man backsprite](https://github.com/dannye/pokered-gen-2-gfx/blob/master/gfx/battle/oldmanb.png)
-* Luna's [Red++](https://) for the following: 
+* Luna's [Red++](https://github.com/JustRegularLuna/rpp-backup) for the following: 
     * [leaf trainer back](https://github.com/JustRegularLuna/rpp-backup/blob/master/pic/trainer/leafb.png) sprite
     * [leaf trainer front](https://github.com/JustRegularLuna/rpp-backup/blob/master/pic/trainer/leaf.png) sprite
     * [leaf OW walking](https://github.com/JustRegularLuna/rpp-backup/blob/master/gfx/sprites/leaf.png) sprite
@@ -72,3 +73,4 @@ Thanks to mr._kat, lalafell, and jojosmeeps for early playtesting and bug report
 
 ### Miscellaneous
 * [Aadit M Shah](https://github.com/aaditmshah) for the [Pokémon type chart](https://github.com/aaditmshah/typechart) software
+* [Sir-Walrus](https://github.com/Sir-Walrus) for the [Floating IPS](https://github.com/Sir-Walrus/Flips) patcher, which is used during the release workflow.
