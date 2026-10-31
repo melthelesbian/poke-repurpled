@@ -1295,3 +1295,8 @@ INCLUDE "data/maps/headers/SaffronBattleFacility.asm"
 INCLUDE "scripts/SaffronBattleFacility.asm"
 INCLUDE "data/maps/objects/SaffronBattleFacility.asm"
 SaffronBattleFacility_Blocks: INCBIN "maps/SaffronBattleFacility.blk"
+
+INCLUDE "data/maps/headers/LavenderShrine.asm"
+INCLUDE "scripts/LavenderShrine.asm"
+INCLUDE "data/maps/objects/LavenderShrine.asm"
+LavenderShrine_Blocks: INCBIN "maps/LavenderShrine.blk"

@@ -136,7 +136,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const UNDERGROUND_PATH_WEST_EAST,    25,  4 ; $72
 	map_const UNUSED_MAP_73,                  0,  0 ; $73
 	map_const SAFFRON_BATTLE_FACILITY,        8,  4 ; $74
-	map_const UNUSED_MAP_75,                  0,  0 ; $75
+	map_const LAVENDER_SHRINE,                5,  5 ; $75
 	map_const HALL_OF_FAME,                   5,  4 ; $76
 	map_const UNDERGROUND_PATH_NORTH_SOUTH,   4, 24 ; $77 ; UndergroundPathNorthSouth.blk is actually 4x23
 	map_const CHAMPIONS_ROOM,                 4,  4 ; $78

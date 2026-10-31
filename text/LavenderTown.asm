@@ -1,3 +1,7 @@
+_LavenderTownShrineSignText::
+	text "LAVENDER SHRINE"
+	done
+
 _LavenderTownLittleGirlDoYouBelieveInGhostsText::
 	text "Do you believe in"
 	line "GHOSTs?"

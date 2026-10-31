@@ -1,0 +1,15 @@
+LavenderShrine_Script:
+	jp EnableAutoTextBoxDrawing
+
+LavenderShrine_TextPointers:
+	def_text_pointers
+	dw_const LavenderShrineChanneler1Text, TEXT_LAVENDERSHRINE_CHANNELER1
+	dw_const LavenderShrineChanneler2Text, TEXT_LAVENDERSHRINE_CHANNELER2
+
+LavenderShrineChanneler1Text:
+	text_far _LavenderShrineChanneler1Text
+	text_end
+
+LavenderShrineChanneler2Text:
+	text_far _LavenderShrineChanneler2Text
+	text_end

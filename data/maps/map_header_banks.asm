@@ -118,7 +118,7 @@ MapHeaderBanks::
 	db BANK(UndergroundPathWestEast_h) ; UNDERGROUND_PATH_WEST_EAST
 	db $1D ; UNUSED_MAP_73
 	db BANK(SaffronBattleFacility_h)
-	db $1D ; UNUSED_MAP_75
+	db BANK(LavenderShrine_h)
 	db BANK(HallOfFame_h)
 	db BANK(UndergroundPathNorthSouth_h)
 	db BANK(ChampionsRoom_h)

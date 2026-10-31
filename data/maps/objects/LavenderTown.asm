@@ -13,6 +13,7 @@ LavenderTown_Object:
 	warp_event 15, 13, LAVENDER_MART, 1
 	warp_event  3, 13, LAVENDER_CUBONE_HOUSE, 1
 	warp_event  7, 13, NAME_RATERS_HOUSE, 1
+	warp_event  0,  1, LAVENDER_SHRINE, 1
 
 	def_bg_events
 	bg_event 11,  9, TEXT_LAVENDERTOWN_SIGN
@@ -21,6 +22,7 @@ LavenderTown_Object:
 	bg_event  4,  5, TEXT_LAVENDERTOWN_POKECENTER_SIGN
 	bg_event  5,  9, TEXT_LAVENDERTOWN_POKEMON_HOUSE_SIGN
 	bg_event 17,  7, TEXT_LAVENDERTOWN_POKEMON_TOWER_SIGN
+	bg_event  1,  3, TEXT_LAVENDERTOWN_SHRINE_SIGN
 
 	def_object_events
 	object_event 15,  9, SPRITE_LITTLE_GIRL, WALK, ANY_DIR, TEXT_LAVENDERTOWN_LITTLE_GIRL

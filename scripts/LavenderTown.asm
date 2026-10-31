@@ -12,6 +12,7 @@ LavenderTown_TextPointers:
 	dw_const PokeCenterSignText,               TEXT_LAVENDERTOWN_POKECENTER_SIGN
 	dw_const LavenderTownPokemonHouseSignText, TEXT_LAVENDERTOWN_POKEMON_HOUSE_SIGN
 	dw_const LavenderTownPokemonTowerSignText, TEXT_LAVENDERTOWN_POKEMON_TOWER_SIGN
+	dw_const LavenderTownShrineSignText,       TEXT_LAVENDERTOWN_SHRINE_SIGN
 
 LavenderTownLittleGirlText:
 	text_asm
@@ -57,6 +58,10 @@ LavenderTownSilphScopeSignText:
 
 LavenderTownPokemonHouseSignText:
 	text_far _LavenderTownPokemonHouseSignText
+	text_end
+
+LavenderTownShrineSignText:
+	text_far _LavenderTownShrineSignText
 	text_end
 
 LavenderTownPokemonTowerSignText:
