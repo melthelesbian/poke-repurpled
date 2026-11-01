@@ -30,6 +30,6 @@
 ## Possible Tasks
 
 - [ ] ~~Set up RED/BLUE version differences~~ (not currently planned)
-- [ ] Add postgame encounters
-- [ ] Instant text
-- [ ] Base movement increase
+- [x] Add postgame encounters
+- [x] Instant text
+- [x] Base movement increase (auto-run)
