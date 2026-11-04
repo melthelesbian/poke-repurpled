@@ -28,11 +28,15 @@ TrySurf:
 	call CheckForTilePairCollisions2
 	jr c, .no
 
-; Check for a Pokemon in the party with SURF, and for the proper badge to use it.
+; Prefer a Pokemon in the party with SURF, falling back to a SURFBOARD in the bag if present, and checks you have the proper badge to use it.
 	ld d, SURF
 	call HasPartyMove
-	jr nz, .no
+	jr z, .checkBadge
+	ld b, SURFBOARD
+	call IsItemInBag
+	jr z, .no
 
+.checkBadge
 	ld a, [wObtainedBadges]
 	bit BIT_SOULBADGE, a
 	jr z, .no
@@ -54,7 +58,16 @@ TrySurf:
 	jr nz, .no2
 
 ; Call the Surf routine if you said yes.
+	ld d, SURF
+	call HasPartyMove
+	jr nz, .surfboardName
 	call GetPartyMonName2
+	jr .useSurf
+.surfboardName
+	ld a, SURFBOARD
+	ld [wd11e], a
+	call GetItemName
+.useSurf
 	ld a, SURFBOARD
 	ld [wCurItem], a
 	ld [wPseudoItemID], a
