@@ -85,13 +85,17 @@ SECTION "Font Graphics", ROMX
 INCLUDE "gfx/font.asm"
 
 
+SECTION "Player Graphics", ROMX
+
+INCLUDE "gfx/player.asm"
+
+
 SECTION "Battle Engine 1", ROMX
 
 INCLUDE "engine/overworld/is_player_just_outside_map.asm"
 INCLUDE "engine/pokemon/status_screen.asm"
 INCLUDE "engine/pokemon/move_screen.asm"
 INCLUDE "engine/menus/party_menu.asm"
-INCLUDE "gfx/player.asm"
 INCLUDE "engine/overworld/turn_sprite.asm"
 INCLUDE "engine/menus/start_sub_menus.asm"
 INCLUDE "engine/items/tms.asm"

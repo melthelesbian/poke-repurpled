@@ -24,6 +24,22 @@ PrepareTitleScreen::
 	ld a, BANK(Music_TitleScreen)
 	ld [wAudioROMBank], a
 	ld [wAudioSavedROMBank], a
+	; load player style for title screen graphic
+	xor a
+	call CheckForPlayerNameInSRAM
+	ld [wPlayerStyle], a
+	jr nc, DisplayTitleScreen
+.loadPlayerStyle
+	ld a, SRAM_ENABLE
+	ld [MBC1SRamEnable], a
+	ld a, $1
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamBank], a
+	ld a, [sMainData + (wPlayerStyle - wMainDataStart)]
+	ld [wPlayerStyle], a
+	ld a, SRAM_DISABLE ; only usable for both because SRAM_DISABLE is $00
+	ld [MBC1SRamBankingMode], a
+	ld [MBC1SRamEnable], a
 
 DisplayTitleScreen:
 	call GBPalWhiteOut
@@ -320,10 +336,20 @@ ScrollTitleScreenGameVersion:
 	ret
 
 DrawPlayerCharacter:
-	ld hl, PlayerCharacterTitleGraphics
+	ld a, [wPlayerStyle]
+	and a
+	jr z, .cute
+	ld hl, PlayerCoolTitleGraphics
 	ld de, vSprites
-	ld bc, PlayerCharacterTitleGraphicsEnd - PlayerCharacterTitleGraphics
-	ld a, BANK(PlayerCharacterTitleGraphics)
+	ld bc, PlayerCoolTitleGraphicsEnd - PlayerCoolTitleGraphics
+	ld a, BANK(PlayerCoolTitleGraphics)
+	jr .copyData
+.cute
+	ld hl, PlayerCuteTitleGraphics
+	ld de, vSprites
+	ld bc, PlayerCuteTitleGraphicsEnd - PlayerCuteTitleGraphics
+	ld a, BANK(PlayerCuteTitleGraphics)
+.copyData
 	call FarCopyData2
 	call ClearSprites
 	xor a
